@@ -112,7 +112,7 @@ public class Recipe {
 	@Override
 	public String toString() {
 		return "Recipe ID= " + recipeId + ", Recipe Name= " + recipeName + ", Method= " + method + ", Rating= "
-				+ rating + ", Time To Make= " + timeToMake + " minutes" + ", Serving Amount= " + servingAmount + "]";
+				+ rating + ", Time To Make= " + timeToMake + " minutes" + ", Serving Amount= " + servingAmount;
 	}
 	
 	
