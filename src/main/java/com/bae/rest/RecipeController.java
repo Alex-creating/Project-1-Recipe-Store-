@@ -1,9 +1,15 @@
 package com.bae.rest;
 
+import java.util.List;
+
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,8 +32,23 @@ public class RecipeController {
 	return this.recService.createRecipe(recipe);
 	}
 	
-	@DeleteMapping("/deleteRecipe/{recipeName}")
-	public void deleteDuck(@PathVariable Recipe recipeName) {
-		this.recService.deleteRecipeByName(recipeName);
+	@DeleteMapping("/deleteRecipe/{id}")
+	public void deleteRecipeById(@PathVariable int id) {
+		this.recService.deleteRecipeByID(id);
+	} 
+	
+	@GetMapping("/getRec/{id}")
+	public Recipe getRecipe(@PathVariable int id) {
+		return this.recService.findRecipeById(id);
+}
+	@GetMapping("getAllRec")
+	public List<Recipe> getAllRecipes(){
+		return this.recService.getAllRecipes();
 	}
+	
+	@PutMapping("updateRecipe")
+	public Recipe updateRecipe(@PathParam("id") int recipeId, @RequestBody Recipe recipeToUpdate) {
+		return this.recService.updateRecipe(recipeToUpdate, recipeId);
+	}
+
 }

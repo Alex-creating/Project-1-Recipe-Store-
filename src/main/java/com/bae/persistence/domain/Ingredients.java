@@ -13,6 +13,10 @@ public class Ingredients {
 	private int ingredientId;
 	private String ingredientName;
 	
+	
+	
+	
+	
 	public int getIngredientId() {
 		return ingredientId;
 	}

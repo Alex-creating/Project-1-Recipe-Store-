@@ -28,16 +28,10 @@ public class RecipeService {
 				() -> new RecipeNotFound());
 	}
 	
-	public void deleteRecipeByName(Recipe recipeName) 
+
+	public void deleteRecipeByID(int recipeId) 
 	{
-		recRepo.delete(recipeName);
-		System.out.println(recipeName + " has been successfully deleted");
-	}
-	
-	public void deleteRecipeByID(Recipe recipeId) 
-	{
-		recRepo.delete(recipeId);
-		System.out.println("Recipe ID: " + recipeId + " has been successfully deleted");
+		recRepo.deleteById(recipeId);
 	}
 	
 	public Recipe createRecipe(Recipe recipeToAdd) 

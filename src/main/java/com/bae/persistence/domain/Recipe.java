@@ -17,6 +17,9 @@ public class Recipe {
 	private int timeToMake;
 	private int servingAmount;
 	
+	
+	
+	
 	public int getRecipeId()
 	{
 		return recipeId;
