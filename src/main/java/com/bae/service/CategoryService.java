@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.bae.exceptions.CategoryNotFound;
+import com.bae.exceptions.InvalidEntryException;
 import com.bae.persistence.domain.Category;
 import com.bae.persistence.repo.CategoryRepo;
 
@@ -25,19 +26,23 @@ public class CategoryService {
 	}
 	
 	public 	Category findCategoryById(int id) {
-		return this.catRepo.findById(id).orElseThrow(
-				() -> new CategoryNotFound());
+		return this.catRepo.findById(id).orElseThrow(CategoryNotFound::new);
 	}
 	
 
-	public void deleteCategoryByID(int categoryId) 
+	public void deleteCategoryById(int categoryId) 
 	{
 		catRepo.deleteById(categoryId);
 	}
 	
 	public Category createCategory(Category categoryToAdd) 
 	{
+		
+		if (categoryToAdd.getCategoryName().length()<2 || categoryToAdd.getCategoryName().length()>50) {
+			throw new InvalidEntryException();
+		}	
 		return catRepo.save(categoryToAdd);
+		
 	}
 	
 	public Category updateCategory(Category category, int id) {

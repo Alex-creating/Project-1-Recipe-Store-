@@ -35,7 +35,7 @@ public class IngredientsController {
 	
 	@DeleteMapping("/deleteIngredient/{id}")
 	public void deleteIngredientById(@PathVariable int id) {
-		this.ingService.deleteIngredientByID(id);
+		this.ingService.deleteIngredientById(id);
 	} 
 	
 	@GetMapping("/getIng/{id}")
