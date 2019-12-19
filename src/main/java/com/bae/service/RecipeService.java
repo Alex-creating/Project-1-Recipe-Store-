@@ -29,9 +29,9 @@ public class RecipeService {
 	}
 	
 
-	public void deleteRecipeById(int recipeId) 
+	public void deleteRecipeById(int id) 
 	{
-		recRepo.deleteById(recipeId);
+		recRepo.deleteById(id);
 	}
 	
 	public Recipe createRecipe(Recipe recipeToAdd) 

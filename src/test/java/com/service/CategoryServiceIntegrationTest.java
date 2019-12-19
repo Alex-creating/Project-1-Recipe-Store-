@@ -51,7 +51,7 @@ public class CategoryServiceIntegrationTest {
 	}
 
 //	@Test
-	//public void testDeleteCategoryById() {
+//	public void testDeleteCategoryById() {
 //		assertThat(this.catService.deleteCategoryById(this.testCategoryWithId.getCategoryId())).isFalse();
 //	}
 
