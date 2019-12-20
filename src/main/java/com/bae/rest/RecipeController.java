@@ -34,7 +34,7 @@ public class RecipeController {
 	
 	@DeleteMapping("/deleteRecipe/{id}")
 	public void deleteRecipeById(@PathVariable int id) {
-		this.recService.deleteRecipeByID(id);
+		this.recService.deleteRecipeById(id);
 	} 
 	
 	@GetMapping("/getRec/{id}")

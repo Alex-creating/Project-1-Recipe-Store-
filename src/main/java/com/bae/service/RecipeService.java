@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.bae.exceptions.InvalidEntryException;
 import com.bae.exceptions.RecipeNotFound;
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repo.RecipeRepo;
@@ -24,19 +25,22 @@ public class RecipeService {
 	}
 	
 	public Recipe findRecipeById(int id) {
-		return this.recRepo.findById(id).orElseThrow(
-				() -> new RecipeNotFound());
+		return this.recRepo.findById(id).orElseThrow(RecipeNotFound::new);
 	}
 	
 
-	public void deleteRecipeByID(int recipeId) 
+	public void deleteRecipeById(int recipeId) 
 	{
 		recRepo.deleteById(recipeId);
 	}
 	
 	public Recipe createRecipe(Recipe recipeToAdd) 
 	{
-		return recRepo.save(recipeToAdd);
+		if (recipeToAdd.getRecipeName().length()<2 || recipeToAdd.getRecipeName().length()>50 || recipeToAdd.getRating() == 0 || recipeToAdd.getTimeToMake() == 0 || recipeToAdd.getServingAmount() == 0) {
+			throw new InvalidEntryException();
+		}
+		
+			return recRepo.save(recipeToAdd);
 	}
 	
 	public Recipe updateRecipe(Recipe recipe, int id) {

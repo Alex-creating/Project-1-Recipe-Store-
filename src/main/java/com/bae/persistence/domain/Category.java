@@ -1,9 +1,14 @@
 package com.bae.persistence.domain;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Category {
@@ -13,7 +18,14 @@ public class Category {
 	private int categoryId;
 	private String categoryName;
 	
+	@ManyToMany
+	@JoinTable(
+	name = "recipe_category ",
+	joinColumns = @JoinColumn (name = "recipeId"),
+	inverseJoinColumns = @JoinColumn (name = "categoryId"))
+	Set<Category> recipeHasCategories;
 	
+
 	
 	
 	public int getCategoryId() {
@@ -31,6 +43,15 @@ public class Category {
 
 	
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + categoryId;
+		result = prime * result + ((categoryName == null) ? 0 : categoryName.hashCode());
+		result = prime * result + ((recipeHasCategories == null) ? 0 : recipeHasCategories.hashCode());
+		return result;
+	}
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -46,14 +67,19 @@ public class Category {
 				return false;
 		} else if (!categoryName.equals(other.categoryName))
 			return false;
+		if (recipeHasCategories == null) {
+			if (other.recipeHasCategories != null)
+				return false;
+		} else if (!recipeHasCategories.equals(other.recipeHasCategories))
+			return false;
 		return true;
 	}
 	
 	public Category() {}
 	
-	public Category(int categoryId, String categoryName) {
+	public Category(String categoryName) {
 		super();
-		this.categoryId = categoryId;
+
 		this.categoryName = categoryName;
 	}
 	

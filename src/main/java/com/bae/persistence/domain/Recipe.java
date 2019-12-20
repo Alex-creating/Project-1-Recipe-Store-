@@ -1,9 +1,14 @@
 package com.bae.persistence.domain;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Recipe {
@@ -17,7 +22,20 @@ public class Recipe {
 	private int timeToMake;
 	private int servingAmount;
 	
-	
+	@ManyToMany
+	@JoinTable(
+	name = "recipe_category ",
+	joinColumns = @JoinColumn (name = "categoryId"),
+	inverseJoinColumns = @JoinColumn (name = "recipeId"))
+	Set<Recipe> recipeHasCategories;
+
+	@ManyToMany
+	@JoinTable(
+	name = "recipe_ingredient ",
+	joinColumns = @JoinColumn (name = "ingredientId"),
+	inverseJoinColumns = @JoinColumn (name = "recipeId"))
+	Set<Recipe> recipeHasIngredients;
+
 	
 	
 	public int getRecipeId()
@@ -71,10 +89,10 @@ public class Recipe {
 	
 	public Recipe() {}
 	
-	public Recipe(int recipeId, String recipeName, String method, int rating, int timeToMake, int servingAmount) 
+	public Recipe(String recipeName, String method, int rating, int timeToMake, int servingAmount) 
 	{
 		super();
-		this.recipeId = recipeId;
+		
 		this.recipeName = recipeName;
 		this.method = method;
 		this.rating = rating;
@@ -82,6 +100,20 @@ public class Recipe {
 		this.servingAmount = servingAmount;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((method == null) ? 0 : method.hashCode());
+		result = prime * result + rating;
+		result = prime * result + ((recipeHasCategories == null) ? 0 : recipeHasCategories.hashCode());
+		result = prime * result + ((recipeHasIngredients == null) ? 0 : recipeHasIngredients.hashCode());
+		result = prime * result + recipeId;
+		result = prime * result + ((recipeName == null) ? 0 : recipeName.hashCode());
+		result = prime * result + servingAmount;
+		result = prime * result + timeToMake;
+		return result;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -97,6 +129,16 @@ public class Recipe {
 		} else if (!method.equals(other.method))
 			return false;
 		if (rating != other.rating)
+			return false;
+		if (recipeHasCategories == null) {
+			if (other.recipeHasCategories != null)
+				return false;
+		} else if (!recipeHasCategories.equals(other.recipeHasCategories))
+			return false;
+		if (recipeHasIngredients == null) {
+			if (other.recipeHasIngredients != null)
+				return false;
+		} else if (!recipeHasIngredients.equals(other.recipeHasIngredients))
 			return false;
 		if (recipeId != other.recipeId)
 			return false;
