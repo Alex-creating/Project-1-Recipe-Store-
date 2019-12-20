@@ -3,6 +3,7 @@ package com.bae.persistence.domain;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,12 +19,12 @@ public class Category {
 	private int categoryId;
 	private String categoryName;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 	name = "recipe_category ",
 	joinColumns = @JoinColumn (name = "recipeId"),
 	inverseJoinColumns = @JoinColumn (name = "categoryId"))
-	Set<Category> recipeHasCategories;
+	Set<Recipe> recipeHasCategories;
 	
 
 	
@@ -48,9 +49,11 @@ public class Category {
 		int result = 1;
 		result = prime * result + categoryId;
 		result = prime * result + ((categoryName == null) ? 0 : categoryName.hashCode());
-		result = prime * result + ((recipeHasCategories == null) ? 0 : recipeHasCategories.hashCode());
 		return result;
 	}
+	
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -67,14 +70,8 @@ public class Category {
 				return false;
 		} else if (!categoryName.equals(other.categoryName))
 			return false;
-		if (recipeHasCategories == null) {
-			if (other.recipeHasCategories != null)
-				return false;
-		} else if (!recipeHasCategories.equals(other.recipeHasCategories))
-			return false;
 		return true;
 	}
-	
 	public Category() {}
 	
 	public Category(String categoryName) {

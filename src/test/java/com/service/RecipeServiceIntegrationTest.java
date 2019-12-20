@@ -4,7 +4,7 @@ package com.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+
 
 import java.util.Arrays;
 
@@ -36,7 +36,7 @@ public class RecipeServiceIntegrationTest {
 	@Before
 	public void init() {
 		this.testRecipe = new Recipe("Lasagna", "Cook", 5, 120, 3);
-		this.testRecipeWithId = testRecipe;
+		
 		
 		this.recRepo.deleteAll();
 		this.testRecipeWithId = this.recRepo.save(this.testRecipe);

@@ -3,6 +3,7 @@ package com.bae.persistence.domain;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,19 +23,19 @@ public class Recipe {
 	private int timeToMake;
 	private int servingAmount;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 	name = "recipe_category ",
 	joinColumns = @JoinColumn (name = "categoryId"),
 	inverseJoinColumns = @JoinColumn (name = "recipeId"))
-	Set<Recipe> recipeHasCategories;
+	Set<Category> recipeHasCategories;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 	name = "recipe_ingredient ",
 	joinColumns = @JoinColumn (name = "ingredientId"),
 	inverseJoinColumns = @JoinColumn (name = "recipeId"))
-	Set<Recipe> recipeHasIngredients;
+	Set<Ingredients> recipeHasIngredients;
 
 	
 	
@@ -106,14 +107,17 @@ public class Recipe {
 		int result = 1;
 		result = prime * result + ((method == null) ? 0 : method.hashCode());
 		result = prime * result + rating;
-		result = prime * result + ((recipeHasCategories == null) ? 0 : recipeHasCategories.hashCode());
-		result = prime * result + ((recipeHasIngredients == null) ? 0 : recipeHasIngredients.hashCode());
 		result = prime * result + recipeId;
 		result = prime * result + ((recipeName == null) ? 0 : recipeName.hashCode());
 		result = prime * result + servingAmount;
 		result = prime * result + timeToMake;
 		return result;
 	}
+
+	
+	
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -130,16 +134,6 @@ public class Recipe {
 			return false;
 		if (rating != other.rating)
 			return false;
-		if (recipeHasCategories == null) {
-			if (other.recipeHasCategories != null)
-				return false;
-		} else if (!recipeHasCategories.equals(other.recipeHasCategories))
-			return false;
-		if (recipeHasIngredients == null) {
-			if (other.recipeHasIngredients != null)
-				return false;
-		} else if (!recipeHasIngredients.equals(other.recipeHasIngredients))
-			return false;
 		if (recipeId != other.recipeId)
 			return false;
 		if (recipeName == null) {
@@ -153,7 +147,6 @@ public class Recipe {
 			return false;
 		return true;
 	}
-	
 	@Override
 	public String toString() {
 		return "Recipe ID= " + recipeId + ", Recipe Name= " + recipeName + ", Method= " + method + ", Rating= "

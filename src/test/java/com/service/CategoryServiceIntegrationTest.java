@@ -2,7 +2,6 @@ package com.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 import org.assertj.core.util.Arrays;
 import org.junit.Before;
@@ -51,7 +50,7 @@ public class CategoryServiceIntegrationTest {
 	}
 
 //	@Test
-	//public void testDeleteCategoryById() {
+//	public void testDeleteCategoryById() {
 //		assertThat(this.catService.deleteCategoryById(this.testCategoryWithId.getCategoryId())).isFalse();
 //	}
 

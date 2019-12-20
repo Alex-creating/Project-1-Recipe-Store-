@@ -1,20 +1,21 @@
 package com.persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.bae.RecipeStoreApp;
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repo.RecipeRepo;
 
+@SpringBootTest(classes = RecipeStoreApp.class)
 @RunWith(SpringRunner.class)
-@DataJpaTest
 public class RecipeRepoTest {
 	
 	@Autowired
@@ -32,6 +33,6 @@ public class RecipeRepoTest {
 	
 	@Test
 	public void testFindByName() {
-		assertThat(this.recRepo.findById(this.testRecipe.getRecipeId())).isEqualTo(this.testSavedRecipe.getRecipeId());
+		assertThat(this.recRepo.findById(this.testRecipe.getRecipeId()).get()).isEqualTo(this.testSavedRecipe);
 	}
 }
