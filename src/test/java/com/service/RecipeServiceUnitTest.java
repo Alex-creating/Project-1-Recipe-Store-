@@ -54,10 +54,10 @@ public class RecipeServiceUnitTest {
 	
 	@Test
 	public void deleteRecipeTest() {
-		when(this.recRepo.existsById(id)).thenReturn(true, false);
-		this.recService.deleteRecipeById(id);
+		when(this.recRepo.existsById(1)).thenReturn(true, false);
+		this.recService.deleteRecipeById(1);
 		
-		verify(this.recRepo, times(1)).deleteById(id);
+		verify(this.recRepo, times(1)).deleteById(1);
 //		verify(this.recRepo, times(1)).findById(id);
 	}
 	
