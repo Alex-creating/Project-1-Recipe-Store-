@@ -1,0 +1,10 @@
+com\rest\RecipeControllerIntegrationTest.class
+com\persistence\RecipeRepoTest.class
+com\service\CategoryServiceUnitTest.class
+com\persistence\CategoryRepoTest.class
+com\persistence\IngredientsRepoTest.class
+com\service\RecipeServiceIntegrationTest.class
+com\service\CategoryServiceIntegrationTest.class
+com\service\IngredientsServiceIntegrationTest.class
+com\service\RecipeServiceUnitTest.class
+com\service\IngredientsServiceUnitTest.class
