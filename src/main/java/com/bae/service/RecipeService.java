@@ -1,6 +1,8 @@
 package com.bae.service;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,18 @@ import com.bae.persistence.repo.RecipeRepo;
 public class RecipeService {
 
 	private RecipeRepo recRepo;
+	
+	String regex = "^[a-zA-Z0-9 ]+$";
+	Pattern pattern = Pattern.compile(regex);
+	
+	public boolean specialCharacterChecker(String checkedName) {
+		Matcher matcher = pattern.matcher(checkedName);
+		return matcher.matches();
+	}
+	
+	public Boolean duplicateRecipe(Recipe recipe) {
+		return this.getAllRecipes().contains(recipe);
+	}
 
 	public RecipeService(RecipeRepo recRepo) {
 		this.recRepo = recRepo;
@@ -36,7 +50,22 @@ public class RecipeService {
 	
 	public Recipe createRecipe(Recipe recipeToAdd) 
 	{
-		if (recipeToAdd.getRecipeName().length()<2 || recipeToAdd.getRecipeName().length()>50 || recipeToAdd.getRating() == 0 || recipeToAdd.getTimeToMake() == 0 || recipeToAdd.getServingAmount() == 0) {
+		if (recipeToAdd.getRecipeName().length()<3 || recipeToAdd.getRecipeName().length()>50 ) {
+			throw new InvalidEntryException();
+		}
+		if ( recipeToAdd.getRating() == 0 || recipeToAdd.getRating() > 5) {
+			throw new InvalidEntryException();
+		}
+		if (recipeToAdd.getTimeToMake() == 0 || recipeToAdd.getTimeToMake() > 600) {
+			throw new InvalidEntryException();
+		}
+		if (recipeToAdd.getServingAmount() == 0) {
+			throw new InvalidEntryException();
+		}
+		if (specialCharacterChecker(recipeToAdd.getRecipeName()) == false) {
+			throw new InvalidEntryException();
+		}
+		if (duplicateRecipe(recipeToAdd)) {
 			throw new InvalidEntryException();
 		}
 		
@@ -50,6 +79,26 @@ public class RecipeService {
 		recipeToUpdate.setRecipeName(recipe.getRecipeName());
 		recipeToUpdate.setServingAmount(recipe.getServingAmount());
 		recipeToUpdate.setTimeToMake(recipe.getTimeToMake());
+		
+		if (recipeToUpdate.getRecipeName().length()<3 || recipeToUpdate.getRecipeName().length()>50 ) {
+			throw new InvalidEntryException();
+		}
+		if ( recipeToUpdate.getRating() == 0 || recipeToUpdate.getRating() > 5) {
+			throw new InvalidEntryException();
+		}
+		if (recipeToUpdate.getTimeToMake() == 0 || recipeToUpdate.getTimeToMake() > 600) {
+			throw new InvalidEntryException();
+		}
+		if (recipeToUpdate.getServingAmount() == 0) {
+			throw new InvalidEntryException();
+		}
+		if (specialCharacterChecker(recipeToUpdate.getRecipeName()) == false) {
+			throw new InvalidEntryException();
+		}
+		if (duplicateRecipe(recipeToUpdate)) {
+			throw new InvalidEntryException();
+		}
+			
 		return this.recRepo.save(recipeToUpdate);
 	}
 	
