@@ -19,11 +19,7 @@ public class Category {
 	private int categoryId;
 	private String categoryName;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(
-	name = "recipe_category ",
-	joinColumns = @JoinColumn (name = "recipeId"),
-	inverseJoinColumns = @JoinColumn (name = "categoryId"))
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy="recipeHasCategories")
 	Set<Recipe> recipeHasCategories;
 	
 

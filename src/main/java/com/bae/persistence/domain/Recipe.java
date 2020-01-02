@@ -2,6 +2,7 @@ package com.bae.persistence.domain;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,16 +24,16 @@ public class Recipe {
 	private int timeToMake;
 	private int servingAmount;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
-	name = "recipe_category ",
+	name = "recipe_category",
 	joinColumns = @JoinColumn (name = "categoryId"),
 	inverseJoinColumns = @JoinColumn (name = "recipeId"))
 	Set<Category> recipeHasCategories;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
-	name = "recipe_ingredient ",
+	name = "recipe_ingredient",
 	joinColumns = @JoinColumn (name = "ingredientId"),
 	inverseJoinColumns = @JoinColumn (name = "recipeId"))
 	Set<Ingredients> recipeHasIngredients;
@@ -86,6 +87,14 @@ public class Recipe {
 	public void setServingAmount(int servingAmount)
 	{
 		this.servingAmount = servingAmount;
+	}
+	
+	public Set<Ingredients> getIngredients() {
+		return recipeHasIngredients;
+	}
+	
+	public Set<Category> getCategories() { 
+		return recipeHasCategories;
 	}
 	
 	public Recipe() {}

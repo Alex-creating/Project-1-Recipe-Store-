@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.bae.exceptions.CategoryNotFound;
@@ -25,9 +26,9 @@ public class CategoryService {
 		return matcher.matches();
 	}
 	
-	public Boolean duplicateCategory(Category category) {
-		return this.getAllCategories().contains(category);
-	}
+//	public Boolean duplicateCategory(Category category) {
+//		return this.getAllCategories().contains(category);
+//	}
 	
 
 	public CategoryService(CategoryRepo catRepo) {
@@ -59,7 +60,10 @@ public class CategoryService {
 		if (specialCharacterChecker(categoryToAdd.getCategoryName()) == false) {
 			throw new InvalidEntryException();
 		}
-		if (duplicateCategory(categoryToAdd)) {
+	//	if (catRepo.findAll().contains(categoryToAdd)) {
+	//		throw new InvalidEntryException();
+	//	}
+		if (StringUtils.isNumeric(categoryToAdd.getCategoryName())) {
 			throw new InvalidEntryException();
 		}
 		
@@ -78,7 +82,10 @@ public class CategoryService {
 		if (specialCharacterChecker(categoryToUpdate.getCategoryName()) == false) {
 			throw new InvalidEntryException();
 		}
-		if (duplicateCategory(categoryToUpdate)) {
+//		if (duplicateCategory(categoryToUpdate)) {
+//			throw new InvalidEntryException();
+//		}
+		if (StringUtils.isNumeric(categoryToUpdate.getCategoryName())) {
 			throw new InvalidEntryException();
 		}
 		

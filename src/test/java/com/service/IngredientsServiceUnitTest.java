@@ -2,6 +2,7 @@ package com.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -17,6 +18,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.bae.exceptions.InvalidEntryException;
 import com.bae.persistence.domain.Ingredients;
 import com.bae.persistence.repo.IngredientsRepo;
 import com.bae.service.IngredientsService;
@@ -33,8 +35,9 @@ public class IngredientsServiceUnitTest {
 	private List<Ingredients> ingList;
 
 	private Ingredients testIngredient;
-
 	private Ingredients testIngredientWithId;
+	private Ingredients testFailingIngredient;
+
 
 	final int id = 1;
 	
@@ -45,6 +48,8 @@ public class IngredientsServiceUnitTest {
 		this.testIngredient = new Ingredients("Tomato");
 		this.testIngredientWithId = new Ingredients(testIngredient.getIngredientName());
 		this.testIngredientWithId.setIngredientId(id);
+		
+		this.testFailingIngredient = new Ingredients("Paprika");
 	}
 
 	@Test
@@ -100,5 +105,67 @@ public class IngredientsServiceUnitTest {
 		verify(this.ingRepo, times(1)).findById(1);
 		verify(this.ingRepo, times(1)).save(updatedIngredient);
 	}
-
+	
+	@Test
+	public void ingredientNameTooShortTest() {
+		this.testFailingIngredient.setIngredientName("a");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.ingService.createIngredient(this.testFailingIngredient);	
+		});
+		this.testFailingIngredient.setIngredientName("ab");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.ingService.createIngredient(this.testFailingIngredient);	
+		});
+		
+	}
+	
+	@Test
+	public void ingredientNameTooLongTest() {
+		this.testFailingIngredient.setIngredientName("abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklim");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.ingService.createIngredient(this.testFailingIngredient);	
+		});
+	}
+	
+	@Test
+	public void ingredientContainsSpecialCharactersTest() {
+		this.testFailingIngredient.setIngredientName("beef!!!!");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.ingService.createIngredient(this.testFailingIngredient);	
+		});
+		this.testFailingIngredient.setIngredientName("cheese?");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.ingService.createIngredient(this.testFailingIngredient);	
+		});
+		this.testFailingIngredient.setIngredientName("jacket-potatoes");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.ingService.createIngredient(this.testFailingIngredient);	
+		});
+	}
+	
+	@Test
+	public void ingredientContainsOnlyNumbersTest() {
+		this.testFailingIngredient.setIngredientName("12345");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.ingService.createIngredient(this.testFailingIngredient);	
+		});
+	}
+	
+	@Test
+	public void ingredientNameAcceptableTest() {
+		this.testIngredient.setIngredientName("WordsAndNumbers123");
+		when(this.ingRepo.save(testIngredient)).thenReturn(testIngredientWithId);
+		assertEquals(this.testIngredientWithId, this.ingService.createIngredient(testIngredient));
+		
+		this.testIngredient.setIngredientName("Words with spaces");
+		when(this.ingRepo.save(testIngredient)).thenReturn(testIngredientWithId);
+		assertEquals(this.testIngredientWithId, this.ingService.createIngredient(testIngredient));
+		
+		this.testIngredient.setIngredientName("Fast and Delicious in 10 minutes");
+		when(this.ingRepo.save(testIngredient)).thenReturn(testIngredientWithId);
+		assertEquals(this.testIngredientWithId, this.ingService.createIngredient(testIngredient));
+		
+		verify(this.ingRepo, times(3)).save(this.testIngredient);
+		
+	}
 }

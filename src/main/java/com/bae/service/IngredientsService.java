@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.bae.exceptions.IngredientNotFound;
@@ -25,9 +26,6 @@ public class IngredientsService {
 		return matcher.matches();
 	}
 	
-	public Boolean duplicateIngredient(Ingredients ingredient) {
-		return this.getAllIngredients().contains(ingredient);
-	}
 
 	public IngredientsService(IngredientsRepo ingRepo) {
 		this.ingRepo = ingRepo;
@@ -52,7 +50,7 @@ public class IngredientsService {
 		if (specialCharacterChecker(ingredientToAdd.getIngredientName()) == false) {
 			throw new InvalidEntryException();
 		}
-		if (duplicateIngredient(ingredientToAdd)) {
+		if (StringUtils.isNumeric(ingredientToAdd.getIngredientName())) {
 			throw new InvalidEntryException();
 		}
 		
@@ -70,9 +68,10 @@ public class IngredientsService {
 		if (specialCharacterChecker(ingredientToUpdate.getIngredientName()) == false) {
 			throw new InvalidEntryException();
 		}
-		if (duplicateIngredient(ingredientToUpdate)) {
+		if (StringUtils.isNumeric(ingredient.getIngredientName())) {
 			throw new InvalidEntryException();
 		}
+
 
 		return this.ingRepo.save(ingredientToUpdate);
 	}

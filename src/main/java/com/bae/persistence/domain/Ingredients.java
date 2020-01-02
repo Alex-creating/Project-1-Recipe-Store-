@@ -19,8 +19,7 @@ public class Ingredients {
 	private int ingredientId;
 	private String ingredientName;
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "recipe_ingredient ", joinColumns = @JoinColumn(name = "recipeId"), inverseJoinColumns = @JoinColumn(name = "ingredientId"))
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "recipeHasIngredients")
 	Set<Recipe> ingredientsAreInRecipes;
 
 	public int getIngredientId() {

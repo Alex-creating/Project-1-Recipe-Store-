@@ -1,13 +1,17 @@
 package com.bae.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.bae.exceptions.InvalidEntryException;
 import com.bae.exceptions.RecipeNotFound;
+import com.bae.persistence.domain.Category;
+import com.bae.persistence.domain.Ingredients;
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repo.RecipeRepo;
 
@@ -24,9 +28,6 @@ public class RecipeService {
 		return matcher.matches();
 	}
 	
-	public Boolean duplicateRecipe(Recipe recipe) {
-		return this.getAllRecipes().contains(recipe);
-	}
 
 	public RecipeService(RecipeRepo recRepo) {
 		this.recRepo = recRepo;
@@ -47,6 +48,16 @@ public class RecipeService {
 	{
 		recRepo.deleteById(id);
 	}
+	public Recipe addIngredientToRecipe(int id, Collection<Ingredients> recipeHasIngredients) {
+		Recipe recipeToUpdate = this.findRecipeById(id);
+		recipeToUpdate.getIngredients().addAll(recipeHasIngredients);
+		return this.recRepo.saveAndFlush(recipeToUpdate);
+	}
+	public Recipe addCategoryToRecipe(int id, Collection<Category> recipeHasCategories) {
+		Recipe recipeToUpdate = this.findRecipeById(id);
+		recipeToUpdate.getCategories().addAll(recipeHasCategories);
+		return this.recRepo.saveAndFlush(recipeToUpdate);
+	}
 	
 	public Recipe createRecipe(Recipe recipeToAdd) 
 	{
@@ -65,7 +76,7 @@ public class RecipeService {
 		if (specialCharacterChecker(recipeToAdd.getRecipeName()) == false) {
 			throw new InvalidEntryException();
 		}
-		if (duplicateRecipe(recipeToAdd)) {
+		if (StringUtils.isNumeric(recipeToAdd.getRecipeName())) {
 			throw new InvalidEntryException();
 		}
 		
@@ -95,10 +106,10 @@ public class RecipeService {
 		if (specialCharacterChecker(recipeToUpdate.getRecipeName()) == false) {
 			throw new InvalidEntryException();
 		}
-		if (duplicateRecipe(recipeToUpdate)) {
+		if (StringUtils.isNumeric(recipeToUpdate.getRecipeName())) {
 			throw new InvalidEntryException();
 		}
-			
+	
 		return this.recRepo.save(recipeToUpdate);
 	}
 	

@@ -1,5 +1,6 @@
 package com.bae.rest;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.websocket.server.PathParam;
@@ -7,12 +8,15 @@ import javax.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bae.persistence.domain.Category;
+import com.bae.persistence.domain.Ingredients;
 import com.bae.persistence.domain.Recipe;
 import com.bae.service.RecipeService;
 
@@ -50,5 +54,14 @@ public class RecipeController {
 	public Recipe updateRecipe(@PathParam("id") int recipeId, @RequestBody Recipe recipeToUpdate) {
 		return this.recService.updateRecipe(recipeToUpdate, recipeId);
 	}
-
+	
+	@PatchMapping("/attachIngredient/{id}")
+	public Recipe addIngredientToRecipe(@PathVariable int id, @RequestBody Collection<Ingredients> recipeHasIngredients) {
+		return this.recService.addIngredientToRecipe(id, recipeHasIngredients);
+	}
+	
+	@PatchMapping("/attachCategory/{id}")
+	public Recipe addCategoryToRecipe(@PathVariable int id, @RequestBody Collection<Category> recipeHasCategories) {
+		return this.recService.addCategoryToRecipe(id, recipeHasCategories);
+	}
 }
