@@ -1,6 +1,5 @@
 package com.bae.service;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,6 +18,7 @@ import com.bae.persistence.repo.RecipeRepo;
 public class RecipeService {
 
 	private RecipeRepo recRepo;
+
 	
 	String regex = "^[a-zA-Z0-9 ]+$";
 	Pattern pattern = Pattern.compile(regex);
@@ -48,14 +48,14 @@ public class RecipeService {
 	{
 		recRepo.deleteById(id);
 	}
-	public Recipe addIngredientToRecipe(int id, Collection<Ingredients> recipeHasIngredients) {
+	public Recipe addIngredientToRecipe(int id, Ingredients ingredient) {
 		Recipe recipeToUpdate = this.findRecipeById(id);
-		recipeToUpdate.getIngredients().addAll(recipeHasIngredients);
+		recipeToUpdate.getIngredients().add(ingredient);
 		return this.recRepo.saveAndFlush(recipeToUpdate);
 	}
-	public Recipe addCategoryToRecipe(int id, Collection<Category> recipeHasCategories) {
+	public Recipe addCategoryToRecipe(int id, Category category) {
 		Recipe recipeToUpdate = this.findRecipeById(id);
-		recipeToUpdate.getCategories().addAll(recipeHasCategories);
+		recipeToUpdate.getCategories().add(category);
 		return this.recRepo.saveAndFlush(recipeToUpdate);
 	}
 	

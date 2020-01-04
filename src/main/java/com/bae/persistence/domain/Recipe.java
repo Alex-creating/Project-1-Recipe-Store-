@@ -31,7 +31,7 @@ public class Recipe {
 	inverseJoinColumns = @JoinColumn (name = "recipeId"))
 	Set<Category> recipeHasCategories;
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
 	name = "recipe_ingredient",
 	joinColumns = @JoinColumn (name = "ingredientId"),
@@ -95,6 +95,13 @@ public class Recipe {
 	
 	public Set<Category> getCategories() { 
 		return recipeHasCategories;
+	}
+	
+	public void setIngredients(Set<Ingredients> ingredients) {
+		this.recipeHasIngredients = ingredients;
+	}
+	public void setCategories(Set<Category> category) {
+		this.recipeHasCategories = category;
 	}
 	
 	public Recipe() {}

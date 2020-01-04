@@ -56,12 +56,12 @@ public class RecipeController {
 	}
 	
 	@PatchMapping("/attachIngredient/{id}")
-	public Recipe addIngredientToRecipe(@PathVariable int id, @RequestBody Collection<Ingredients> recipeHasIngredients) {
-		return this.recService.addIngredientToRecipe(id, recipeHasIngredients);
+	public Recipe addIngredientToRecipe(@PathVariable int id, @RequestBody Ingredients ingredient) {
+		return this.recService.addIngredientToRecipe(id, ingredient);
 	}
 	
 	@PatchMapping("/attachCategory/{id}")
-	public Recipe addCategoryToRecipe(@PathVariable int id, @RequestBody Collection<Category> recipeHasCategories) {
-		return this.recService.addCategoryToRecipe(id, recipeHasCategories);
+	public Recipe addCategoryToRecipe(@PathVariable int id, @RequestBody Category category) {
+		return this.recService.addCategoryToRecipe(id, category);
 	}
 }
