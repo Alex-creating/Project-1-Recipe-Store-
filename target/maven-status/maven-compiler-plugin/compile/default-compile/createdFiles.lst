@@ -1,10 +1,11 @@
 com\bae\RecipeStoreApp.class
 com\bae\service\IngredientsService.class
-com\bae\exceptions\IngredientNotFound.class
 com\bae\persistence\repo\CategoryRepo.class
-com\bae\rest\IngredientsController.class
 com\bae\exceptions\CategoryNotFound.class
 com\bae\exceptions\RecipeNotFound.class
+com\bae\persistence\domain\Ingredients.class
+com\bae\exceptions\IngredientNotFound.class
+com\bae\rest\IngredientsController.class
 com\bae\exceptions\InvalidEntryException.class
 com\bae\rest\CategoryController.class
 com\bae\service\RecipeService.class
@@ -12,6 +13,5 @@ com\bae\persistence\domain\Category.class
 com\bae\rest\RecipeController.class
 com\bae\persistence\repo\IngredientsRepo.class
 com\bae\persistence\domain\Recipe.class
-com\bae\persistence\domain\Ingredients.class
 com\bae\service\CategoryService.class
 com\bae\persistence\repo\RecipeRepo.class

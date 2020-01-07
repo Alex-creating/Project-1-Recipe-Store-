@@ -61,23 +61,23 @@ public class RecipeService {
 	
 	public Recipe createRecipe(Recipe recipeToAdd) 
 	{
-<span class="pc bpc" id="L64" title="2 of 4 branches missed.">		if (recipeToAdd.getRecipeName().length()&lt;3 || recipeToAdd.getRecipeName().length()&gt;50 ) {</span>
-<span class="nc" id="L65">			throw new InvalidEntryException();</span>
+<span class="fc bfc" id="L64" title="All 4 branches covered.">		if (recipeToAdd.getRecipeName().length()&lt;3 || recipeToAdd.getRecipeName().length()&gt;50 ) {</span>
+<span class="fc" id="L65">			throw new InvalidEntryException();</span>
 		}
-<span class="pc bpc" id="L67" title="2 of 4 branches missed.">		if ( recipeToAdd.getRating() == 0 || recipeToAdd.getRating() &gt; 5) {</span>
-<span class="nc" id="L68">			throw new InvalidEntryException();</span>
+<span class="fc bfc" id="L67" title="All 4 branches covered.">		if ( recipeToAdd.getRating() == 0 || recipeToAdd.getRating() &gt; 5) {</span>
+<span class="fc" id="L68">			throw new InvalidEntryException();</span>
 		}
-<span class="pc bpc" id="L70" title="2 of 4 branches missed.">		if (recipeToAdd.getTimeToMake() == 0 || recipeToAdd.getTimeToMake() &gt; 600) {</span>
-<span class="nc" id="L71">			throw new InvalidEntryException();</span>
+<span class="fc bfc" id="L70" title="All 4 branches covered.">		if (recipeToAdd.getTimeToMake() == 0 || recipeToAdd.getTimeToMake() &gt; 600) {</span>
+<span class="fc" id="L71">			throw new InvalidEntryException();</span>
 		}
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">		if (recipeToAdd.getServingAmount() == 0) {</span>
-<span class="nc" id="L74">			throw new InvalidEntryException();</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		if (recipeToAdd.getServingAmount() == 0) {</span>
+<span class="fc" id="L74">			throw new InvalidEntryException();</span>
 		}
-<span class="pc bpc" id="L76" title="1 of 2 branches missed.">		if (specialCharacterChecker(recipeToAdd.getRecipeName()) == false) {</span>
-<span class="nc" id="L77">			throw new InvalidEntryException();</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		if (specialCharacterChecker(recipeToAdd.getRecipeName()) == false) {</span>
+<span class="fc" id="L77">			throw new InvalidEntryException();</span>
 		}
-<span class="pc bpc" id="L79" title="1 of 2 branches missed.">		if (StringUtils.isNumeric(recipeToAdd.getRecipeName())) {</span>
-<span class="nc" id="L80">			throw new InvalidEntryException();</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">		if (StringUtils.isNumeric(recipeToAdd.getRecipeName())) {</span>
+<span class="fc" id="L80">			throw new InvalidEntryException();</span>
 		}
 		
 <span class="fc" id="L83">			return recRepo.save(recipeToAdd);</span>
