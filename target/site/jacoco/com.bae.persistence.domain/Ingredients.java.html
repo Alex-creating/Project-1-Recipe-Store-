@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Ingredients.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RecipeStore</a> &gt; <a href="index.source.html" class="el_package">com.bae.persistence.domain</a> &gt; <span class="el_source">Ingredients.java</span></div><h1>Ingredients.java</h1><pre class="source lang-java linenums">package com.bae.persistence.domain;
+
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+
+@Entity
+public class Ingredients {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int ingredientId;
+	private String ingredientName;
+
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = &quot;recipeHasIngredients&quot;)
+	Set&lt;Recipe&gt; ingredientsAreInRecipes;
+
+	public int getIngredientId() {
+<span class="fc" id="L26">		return ingredientId;</span>
+	}
+
+	public void setIngredientId(int ingredientId) {
+<span class="fc" id="L30">		this.ingredientId = ingredientId;</span>
+<span class="fc" id="L31">	}</span>
+
+	public String getIngredientName() {
+<span class="fc" id="L34">		return ingredientName;</span>
+	}
+
+	public void setIngredientName(String ingredientName) {
+<span class="fc" id="L38">		this.ingredientName = ingredientName;</span>
+<span class="fc" id="L39">	}</span>
+
+	@Override
+	public int hashCode() {
+<span class="nc" id="L43">		final int prime = 31;</span>
+<span class="nc" id="L44">		int result = 1;</span>
+<span class="nc" id="L45">		result = prime * result + ingredientId;</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">		result = prime * result + ((ingredientName == null) ? 0 : ingredientName.hashCode());</span>
+<span class="nc" id="L47">		return result;</span>
+	}
+
+
+	
+	
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="fc bfc" id="L56" title="All 2 branches covered.">		if (this == obj)</span>
+<span class="fc" id="L57">			return true;</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">		if (obj == null)</span>
+<span class="nc" id="L59">			return false;</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">		if (getClass() != obj.getClass())</span>
+<span class="nc" id="L61">			return false;</span>
+<span class="fc" id="L62">		Ingredients other = (Ingredients) obj;</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">		if (ingredientId != other.ingredientId)</span>
+<span class="nc" id="L64">			return false;</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">		if (ingredientName == null) {</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">			if (other.ingredientName != null)</span>
+<span class="nc" id="L67">				return false;</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">		} else if (!ingredientName.equals(other.ingredientName))</span>
+<span class="nc" id="L69">			return false;</span>
+<span class="fc" id="L70">		return true;</span>
+	}
+
+	@Override
+	public String toString() {
+<span class="nc" id="L75">		return &quot;Ingredient ID=&quot; + ingredientId + &quot;, Ingredient Name=&quot; + ingredientName;</span>
+	}
+
+<span class="fc" id="L78">	public Ingredients() {</span>
+<span class="fc" id="L79">	}</span>
+
+	public Ingredients(String ingredientName) {
+<span class="fc" id="L82">		super();</span>
+<span class="fc" id="L83">		this.ingredientName = ingredientName;</span>
+<span class="fc" id="L84">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

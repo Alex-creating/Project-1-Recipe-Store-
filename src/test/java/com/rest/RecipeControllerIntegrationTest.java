@@ -20,8 +20,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.bae.RecipeStoreApp;
+import com.bae.persistence.domain.Category;
+import com.bae.persistence.domain.Ingredients;
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repo.RecipeRepo;
+import com.bae.service.RecipeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
@@ -42,6 +45,12 @@ public class RecipeControllerIntegrationTest {
 	private Recipe testRec;
 	
 	private Recipe testRecWithId;
+	
+	@Autowired
+	private RecipeService recService;
+	
+	private Ingredients ingredient;
+	private Category category;
 	
 	@Before 
 	public void init() {
@@ -72,13 +81,14 @@ public class RecipeControllerIntegrationTest {
 
 		String content = this.mock.perform(request(HttpMethod.GET, "/getAllRec").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
-
+		System.out.println("1" +recList); 
+		System.out.println("2" +content);
 		assertEquals(this.mapper.writeValueAsString(recList), content);
 	}
 
 	@Test
 	public void testUpdateRecipe() throws Exception {
-		Recipe newRec = new Recipe("Lasagna", "bake", 12, 12, 125);
+		Recipe newRec = new Recipe("Lasagna", "bake", 3, 3, 125);
 		Recipe updatedRecipe = new Recipe(newRec.getRecipeName(), newRec.getMethod(), newRec.getRating(), newRec.getTimeToMake(), newRec.getServingAmount());
 		updatedRecipe.setRecipeId(this.id);
 

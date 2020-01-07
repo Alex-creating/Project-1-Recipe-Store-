@@ -2,6 +2,7 @@ package com.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -17,6 +18,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.bae.exceptions.InvalidEntryException;
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repo.RecipeRepo;
 import com.bae.service.RecipeService;
@@ -33,6 +35,7 @@ public class RecipeServiceUnitTest {
 	private List<Recipe> recipeList;
 	private Recipe testRecipe;
 	private Recipe testRecipeWithId;
+	private Recipe testFailingRecipe;
 	
 	final int id = 1;
 	
@@ -42,7 +45,10 @@ public class RecipeServiceUnitTest {
 		this.recipeList.add(testRecipe);
 		this.testRecipe = new Recipe ("Lasagna", "Cook", 5, 120, 3);
 		this.testRecipeWithId = new Recipe (testRecipe.getRecipeName(), testRecipe.getMethod(), testRecipe.getRating(), testRecipe.getTimeToMake(), testRecipe.getServingAmount());
-		this.testRecipeWithId.setRecipeId(id);		
+		this.testRecipeWithId.setRecipeId(id);	
+		
+		this.testFailingRecipe = new Recipe("Pizza Cake", "Cook", 2, 3, 4);
+
 	}
 	
 	@Test
@@ -88,5 +94,108 @@ public class RecipeServiceUnitTest {
 		verify(this.recRepo, times(1)).findById(1);
 		verify(this.recRepo, times(1)).save(updatedRecipe);
 	}
+	
+	@Test
+	public void recipeNameTooShortTest() {
+		
+		this.testFailingRecipe.setRecipeName("a");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);	
+		});
+		this.testFailingRecipe.setRecipeName("ab");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);	
+		});
+	}
+		
+
+	
+	@Test
+	public void recipeNameTooLongTest() {
+		this.testFailingRecipe.setRecipeName("abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklim");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);
+		});
+	}
+	
+	@Test
+	public void recipeNameContainsSpecialCharactersTest() {
+		this.testFailingRecipe.setRecipeName("Lasagna!!");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);
+		});
+		this.testFailingRecipe.setRecipeName("Bird Pie!!");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);
+		});
+	}
+	
+	@Test
+	public void recipeNameContainsOnlyNumbers() {
+		this.testFailingRecipe.setRecipeName("123123");
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);
+		});
+	}
+	@Test
+	public void acceptableRecipeNameTest() {
+		this.testRecipe.setRecipeName("Tasty Pizza");
+		when(this.recRepo.save(testRecipe)).thenReturn(testRecipeWithId);
+		assertEquals(this.testRecipeWithId, this.recService.createRecipe(testRecipe));
+		
+		this.testRecipe.setRecipeName("1 Salad");
+		when(this.recRepo.save(testRecipe)).thenReturn(testRecipeWithId);
+		assertEquals(this.testRecipeWithId, this.recService.createRecipe(testRecipe));
+	}
+	
+	
+	@Test 
+	public void recipeRatingTest() {
+		this.testFailingRecipe.setRating(0);
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);
+		});
+		
+		this.testFailingRecipe.setRating(12);
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);
+		});
+		
+		this.testRecipe.setRating(3);
+		when(this.recRepo.save(testRecipe)).thenReturn(testRecipeWithId);
+		assertEquals(this.testRecipeWithId, this.recService.createRecipe(testRecipe));
+		
+	}
+	
+	@Test
+	public void recipeServingAmountTest() {
+		this.testFailingRecipe.setServingAmount(0);
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);
+		});
+		
+		this.testRecipe.setServingAmount(12);
+		when(this.recRepo.save(testRecipe)).thenReturn(testRecipeWithId);
+		assertEquals(this.testRecipeWithId, this.recService.createRecipe(testRecipe));
+	}
+	
+	@Test
+	public void recipeTimeToMakeTest() {
+		this.testFailingRecipe.setTimeToMake(0);
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);
+		});
+		
+		this.testFailingRecipe.setTimeToMake(601);
+		assertThrows(InvalidEntryException.class, () -> {
+			this.recService.createRecipe(this.testFailingRecipe);
+		});
+		
+		this.testRecipe.setTimeToMake(120);
+		when(this.recRepo.save(testRecipe)).thenReturn(testRecipeWithId);
+		assertEquals(this.testRecipeWithId, this.recService.createRecipe(testRecipe));
+
+	}
+	
 
 }

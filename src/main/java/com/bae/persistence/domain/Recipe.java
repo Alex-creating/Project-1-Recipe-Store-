@@ -1,5 +1,6 @@
 package com.bae.persistence.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,7 +15,7 @@ import javax.persistence.JoinColumn;
 
 @Entity
 public class Recipe {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int recipeId;
@@ -23,93 +24,85 @@ public class Recipe {
 	private int rating;
 	private int timeToMake;
 	private int servingAmount;
-	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(
-	name = "recipe_category",
-	joinColumns = @JoinColumn (name = "categoryId"),
-	inverseJoinColumns = @JoinColumn (name = "recipeId"))
-	Set<Category> recipeHasCategories;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(
-	name = "recipe_ingredient",
-	joinColumns = @JoinColumn (name = "ingredientId"),
-	inverseJoinColumns = @JoinColumn (name = "recipeId"))
-	Set<Ingredients> recipeHasIngredients;
+	@JoinTable(name = "recipe_category", joinColumns = @JoinColumn(name = "categoryId"), inverseJoinColumns = @JoinColumn(name = "recipeId"))
+	private Set<Category> recipeHasCategories = new HashSet<>();
 
-	
-	
-	public int getRecipeId()
-	{
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "recipe_ingredient", joinColumns = @JoinColumn(name = "ingredientId"), inverseJoinColumns = @JoinColumn(name = "recipeId"))
+	private Set<Ingredients> recipeHasIngredients = new HashSet<>();
+
+	public int getRecipeId() {
 		return recipeId;
 	}
-	public void setRecipeId(int recipeId) 
-	{
+
+	public void setRecipeId(int recipeId) {
 		this.recipeId = recipeId;
 	}
-	public String getRecipeName() 
-	{
+
+	public String getRecipeName() {
 		return recipeName;
 	}
-	public void setRecipeName(String recipeName)
-	{
+
+	public void setRecipeName(String recipeName) {
 		this.recipeName = recipeName;
 	}
-	public String getMethod() 
-	{
+
+	public String getMethod() {
 		return method;
 	}
-	public void setMethod(String method) 
-	{
+
+	public void setMethod(String method) {
 		this.method = method;
 	}
-	public int getRating() 
-	{
+
+	public int getRating() {
 		return rating;
 	}
-	public void setRating(int rating) 
-	{
+
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
-	public int getTimeToMake()
-	{
+
+	public int getTimeToMake() {
 		return timeToMake;
 	}
-	public void setTimeToMake(int timeToMake)
-	{
+
+	public void setTimeToMake(int timeToMake) {
 		this.timeToMake = timeToMake;
 	}
-	public int getServingAmount()
-	{
+
+	public int getServingAmount() {
 		return servingAmount;
 	}
-	public void setServingAmount(int servingAmount)
-	{
+
+	public void setServingAmount(int servingAmount) {
 		this.servingAmount = servingAmount;
 	}
-	
+
 	public Set<Ingredients> getIngredients() {
 		return recipeHasIngredients;
 	}
-	
-	public Set<Category> getCategories() { 
+
+	public Set<Category> getCategories() {
 		return recipeHasCategories;
 	}
-	
+
 	public void setIngredients(Set<Ingredients> ingredients) {
 		this.recipeHasIngredients = ingredients;
 	}
+
 	public void setCategories(Set<Category> category) {
 		this.recipeHasCategories = category;
 	}
-	
-	public Recipe() {}
-	
-	public Recipe(String recipeName, String method, int rating, int timeToMake, int servingAmount) 
-	{
+
+	public Recipe() {
+	}
+
+	public Recipe(String recipeName, String method, int rating, int timeToMake, int servingAmount) {
 		super();
-		
+
 		this.recipeName = recipeName;
 		this.method = method;
 		this.rating = rating;
@@ -130,10 +123,6 @@ public class Recipe {
 		return result;
 	}
 
-	
-	
-	
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -163,16 +152,11 @@ public class Recipe {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "Recipe ID= " + recipeId + ", Recipe Name= " + recipeName + ", Method= " + method + ", Rating= "
-				+ rating + ", Time To Make= " + timeToMake + " minutes" + ", Serving Amount= " + servingAmount;
+		return "Recipe ID= " + recipeId + ", Recipe Name= " + recipeName + ", Method= " + method + ", Rating= " + rating
+				+ ", Time To Make= " + timeToMake + " minutes" + ", Serving Amount= " + servingAmount;
 	}
-	
-	
-	
-	
-	
-	
 
 }
