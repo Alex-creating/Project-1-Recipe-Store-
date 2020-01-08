@@ -1,23 +1,27 @@
+
+
+
+
 $(document).ready(function() {
     $('.js-example-basic-multiple').select2({
         tags: true
     });
 });
 
-var textContainer, textareaSize, input;
-var autoSize = function () {
-  // also can use textContent or innerText
-  textareaSize.innerHTML = input.value + '\n';
-};
+// var textContainer, textareaSize, input;
+// var autoSize = function () {
+//   // also can use textContent or innerText
+//   textareaSize.innerHTML = input.value + '\n';
+// };
 
-document.addEventListener('DOMContentLoaded', function() {
-  textContainer = document.querySelector('.textarea-container');
-  textareaSize = textContainer.querySelector('.textarea-size');
-  input = textContainer.querySelector('textarea');
+// document.addEventListener('DOMContentLoaded', function() {
+//   textContainer = document.querySelector('.textarea-container');
+//   textareaSize = textContainer.querySelector('.textarea-size');
+//   input = textContainer.querySelector('textarea');
 
-  autoSize();
-  input.addEventListener('input', autoSize);
-});
+//   autoSize();
+//   input.addEventListener('input', autoSize);
+// });
 
 
 function turnToInteger(stringObject){
@@ -41,37 +45,10 @@ function addRecipe(){
     JSON.stringify(newRecipe);
     axios.post('http://localhost:8080/createRecipe', newRecipe)
     .then(function(data) {
-        console.log(data);
         window.alert("You have added " + document.getElementById('recipeName').value + " to your store!");
-        createAllRecipeTable(data);
+        window.location = "/RecipeViewAllPage.html";
     })
     .catch(function (error) {
         console.log(error);
     }); 
-}
-
-
-
-function getAllRecipes(){
-
-    axios.get('http://localhost:8080/getAllRec')
-    
-        .then((response) => {
-            console.log(response);
-
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    }
-
-
-
-function createAllRecipeTable(recipe) {
-    let newTable = document.createElement("tr");
-
-    for (let r of recipe) {
-
-    }
-
 }

@@ -3,8 +3,8 @@ RecipeStore,com.bae,RecipeStoreApp,5,3,0,0,2,1,1,1,1,1
 RecipeStore,com.bae.persistence.domain,Category,54,54,9,7,12,19,9,8,2,7
 RecipeStore,com.bae.persistence.domain,Ingredients,54,54,9,7,12,20,9,8,2,7
 RecipeStore,com.bae.persistence.domain,Recipe,86,187,18,12,21,50,15,21,1,20
-RecipeStore,com.bae.exceptions,CategoryNotFound,3,0,0,0,1,0,1,0,1,0
 RecipeStore,com.bae.exceptions,IngredientNotFound,3,0,0,0,1,0,1,0,1,0
+RecipeStore,com.bae.exceptions,CategoryNotFound,3,0,0,0,1,0,1,0,1,0
 RecipeStore,com.bae.exceptions,InvalidEntryException,0,3,0,0,0,1,0,1,0,1
 RecipeStore,com.bae.exceptions,RecipeNotFound,3,0,0,0,1,0,1,0,1,0
 RecipeStore,com.bae.service,CategoryService,12,111,4,12,3,24,4,11,0,7

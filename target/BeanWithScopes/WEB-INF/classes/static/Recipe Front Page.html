@@ -1,9 +1,6 @@
-
-
 <html>
     <head>
         <link rel="stylesheet" href="Recipe.css"/>
-
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -13,13 +10,12 @@
         <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
     </head>
 
-
 <body>
    
 
      <ul class = "banner">
         <li><a href="Recipe Front Page.html">Add a Recipe</a></li>
-        <li><a href="Recipe View All Page.html">View All Recipes</a></li>
+        <li onclick= "getAllRecipes()"><a  href="Recipe View All Page.html">View All Recipes</a></li>
         <li><a href="Edit Recipe.html">Edit Your Recipes</a></li>
     </ul>
 
@@ -30,19 +26,23 @@
     <div class="boxed"> Recipe  Store</div>
           
     <br>
+        <div class="behind-text"></div>
     <br>
 
-    <div class="title"> 🍴 Add a Recipe 🍴</div>
-    <br>
-    <br>
-
-    <div class="Sub-title"> Recipe Name:
     
-        <form  action="/action_page.php">
-            <input class="inputing" type="text">
-            <br>
-        </form>
-    </div>
+         <div class="title"> 🍴 Add a Recipe 🍴</div>
+        
+    <br>
+    <br>
+
+        <div class="Sub-title"> Recipe Name:
+            
+                <form  action="/action_page.php">
+                    <input id="recipeName" class="inputing" type="text">
+
+    <br>
+                </form>
+            </div>
 
     <div class="Sub-title"> Ingredients:
         <br>
@@ -55,16 +55,16 @@
 
     <br>
 
-    <div class="Sub-title">Rating:
+    <div  class="Sub-title">Rating:
 
     <br>
 
-    <select>
-        <option value="">1 Star</option>
-        <option value="">2 Stars</option>
-        <option value="">3 Stars</option>
-        <option value="">4 Stars</option>
-        <option value="">5 Stars</option>
+    <select id="Rating">
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5">5 Stars</option>
       </select>
     </div>
 
@@ -73,7 +73,7 @@
       <div class="Sub-title">Serves How Many?
 
         <form  action="/action_page.php">
-            <input class="inputing" type="text">
+            <input id="serving" class="inputing" type="text">
             <br>
          </form>
     
@@ -82,13 +82,22 @@
         <div class="Sub-title">How Many Minutes Did it Take?
 
             <form  action="/action_page.php">
-                <input class="inputing" type="text">
+                <input id="howLong" class="inputing" type="text">
                 
              </form>
         
             </div>
-
             
+            <div class="Sub-title">Method:
+        
+                <div class="textarea-container">
+                  <textarea id="method"></textarea>
+                  <div class="textarea-size"></div>
+               </div>
+            </div>
+
+            <br>
+            <br>
             
             <div class="Sub-title"> Categories:
                 <br>
@@ -97,11 +106,17 @@
                     <option value="BY">Wyoming</option>
     
                   </select>
-        
+                  <br>
+                  <br>
+        <input class="button" name="submit" type="submit" value="Submit" onclick="addRecipe()"/>
             </div>
-
-
-   
+<br>
+<br>
+           
+        
+        
+ 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
 <script src="./Recipe.js"></script>
 </body>
 

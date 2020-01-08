@@ -3,7 +3,59 @@ body{
     background-size: cover;
 }
 
+.textarea-container {
+  position: relative;
+  /* you should change this*/
+  width: 50%;
+}
 
+textarea, .textarea-size {
+  min-height: 25px;
+  /* need to manually set font and font size */
+  font-family: sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 4px;
+  border: 1px solid;
+
+  overflow: hidden;
+  width: 100%;
+}
+
+textarea {
+  height: 150%;
+  position: absolute;
+  resize:none;
+
+  /*
+  "pre" or "preline" or "normal" fixes Chrome issue where
+    whitespace at end of lines does not trigger a line break.
+  However, it causes the text to exhibit the behavior seen with
+    "pre" that is described below.
+   */
+  white-space: normal;
+}
+
+.textarea-size {
+  visibility: hidden;
+
+  /*
+  Pre-wrap: preserve spacing and newlines, but wrap text.
+  Pre: preserve spacing and newlines but don't wrap text.
+
+  "pre" does not wrap well on Firefox, even with word-wrap:break-word.
+  "pre" on Chrome works with word-wrap, but exhibits different behavior:
+  Instead of entire words being moved to the next line for wrapping,
+  the browser will cut words in the middle for wrapping.
+  "pre-line" has Firefox issues
+  */
+  white-space: pre-wrap;
+  /* Required for wrapping lines in Webkit,
+    but not necessary in Firefox if you have white-space wrapping
+    (pre-wrap, normal, pre-line) already set */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 
 .title{
     color: rgb(27, 199, 185);
@@ -34,6 +86,22 @@ ul {
   
   }
 
+  .behind-text{
+    background-color: #cccccc;
+    text-align: left;
+    vertical-align: middle;
+    padding: 30% 33%;
+    position: absolute;
+    margin-left: 16%;
+    opacity: 0.3;
+    z-index: -1;
+    min-height: 104%;
+    min-width: 68%;
+
+  }
+
+
+
   .banner{
         background-color: #333;
   }
@@ -55,7 +123,7 @@ ul {
 }
 
 .select2-results__option:hover{
-    background-color: rgb(27, 199, 185);;
+    background-color: rgb(27, 199, 185);
 }
 
 .select2-container--focus{
@@ -79,7 +147,11 @@ ul {
     
   }
 
-
+.button{
+    background-color: rgb(27, 199, 185);
+    font-size:30px;
+    margin-left: 57%;
+}
   
   /* Change the link color to #111 (black) on hover */
   li a:hover {
