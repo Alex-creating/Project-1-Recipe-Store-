@@ -1,18 +1,125 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<link rel="stylesheet" href="Recipe.css"/>
-
 <html>
+    <head>
+        <link rel="stylesheet" href="Recipe.css"/>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+    </head>
 
 
 <body>
    
 
-     <ul>
-        <li><a href="Recipe Front Page.html">Add a Recipe</a></li>
-        <li><a href="Recipe View All Page.html">View All Recipes</a></li>
+     <ul class = "banner">
+        <li><a href="index.html">Add a Recipe</a></li>
+        <li><a  href="Recipe View All Page.html">View All Recipes</a></li>
         <li><a href="Edit Recipe.html">Edit Your Recipes</a></li>
     </ul>
 
+
+    <br>
+    <br>
+
+    <div class="boxed"> Recipe  Store</div>
+          
+    <br>
+        <div class="behind-text"></div>
+    <br>
+
+    
+         <div class="title"> 🍴 Add a Recipe 🍴</div>
+        
+    <br>
+    <br>
+
+        <div class="Sub-title"> Recipe Name:
+            
+                <form  action="/action_page.php">
+                    <input id="recipeName" class="inputing" type="text">
+
+    <br>
+                </form>
+            </div>
+
+    <div class="Sub-title"> Ingredients:
+        <br>
+        <select class="js-example-basic-multiple" name="state" multiple="multiple">
+            <option value="AL">Alabama</option><br>
+            <option value="WY">Wyoming</option>
+          </select>
+
+    </div>
+
+    <br>
+
+    <div  class="Sub-title">Rating:
+
+    <br>
+
+    <select id="Rating">
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5">5 Stars</option>
+      </select>
+    </div>
+
+    <br>
+
+      <div class="Sub-title">Serves How Many?
+
+        <form  action="/action_page.php">
+            <input id="serving" class="inputing" type="text">
+            <br>
+         </form>
+    
+        </div>
+
+        <div class="Sub-title">How Many Minutes Did it Take?
+
+            <form  action="/action_page.php">
+                <input id="howLong" class="inputing" type="text">
+                
+             </form>
+        
+            </div>
+            
+            <div class="Sub-title">Method:
+        
+                <div class="textarea-container">
+                  <textarea id="method"></textarea>
+                  <div class="textarea-size"></div>
+               </div>
+            </div>
+
+            <br>
+            <br>
+            
+            <div class="Sub-title"> Categories:
+                <br>
+                <select class="js-example-basic-multiple" name="state" multiple="multiple">
+                    <option value="AA">Alabama</option><br>
+                    <option value="BY">Wyoming</option>
+    
+                  </select>
+                  <br>
+                  <br>
+        <input class="button" name="submit" type="submit" value="Submit" onclick="addRecipe()"/>
+            </div>
+<br>
+<br>
+           
+        
+        
+ 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
+<script src="./Recipe.js"></script>
 </body>
+
 </html>
