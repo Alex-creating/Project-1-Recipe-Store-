@@ -1,5 +1,15 @@
 
 const table = document.getElementById("allRecipesTableBody");
+const recipeName = document.getElementById("singleRecipeName");
+const recipeRating = document.getElementById("singleRecipeRating");
+const recipeServing = document.getElementById("singleRecipeServing");
+const recipeLength = document.getElementById("singleRecipeLength");
+const recipeMethod = document.getElementById("singleRecipeMethod");
+
+
+
+getRecipeAndCreateTable();
+
 
 function getRecipeAndCreateTable() {
     axios.get("http://localhost:8080/getAllRec")
@@ -10,8 +20,7 @@ function getRecipeAndCreateTable() {
         console.log(error);
     });
 }
-getRecipeAndCreateTable();
-// window.onload = getRecipeAndCreateTable;
+
 
 function addRecipeToTable(recipeToAdd){ 
     for (let recipe of recipeToAdd) {
@@ -33,13 +42,39 @@ function addRecipeToTable(recipeToAdd){
         lengthEntry.innerHTML = recipe.timeToMake;
         row.appendChild(lengthEntry);
         
-        let methodEntry = document.createElement("td");
-        methodEntry.innerHTML = recipe.method;
-        row.appendChild(methodEntry);
+        table.appendChild(row); 
+        console.log("hello");
+     
+        row.addEventListener('click', ()=> getRecipeFromID(recipe.recipeId));
         
-        table.appendChild(row);
-    }
+    }      
+    
 }
+
+function getRecipeFromID(id){
+    axios.get("http://localhost:8080/getRec/" + id)
+    .then(function(response) {
+        populatePage(response.data);
+        $("#TablePage").toggle();
+        $("#ViewPage").toggle();
+     
+    }).catch((error) => {
+        console.log(error);
+    });
+}
+
+
+
+
+function populatePage(recipe) {
+    recipeName.innerText = recipe.recipeName;
+    recipeRating.innerText = recipe.rating;
+    recipeServing.innerText = recipe.servingAmount;
+    recipeLength.innerText = recipe.timeToMake;
+    recipeMethod.innerText = recipe.method;
+}
+
+
 
 
 function getAllRecipes(){
@@ -54,3 +89,4 @@ function getAllRecipes(){
             console.log(error);
         });
     }
+

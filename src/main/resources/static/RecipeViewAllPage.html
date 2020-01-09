@@ -21,6 +21,7 @@
         <li><a href="EditRecipe.html">Edit Your Recipes</a></li>
     </ul>
 
+<div id="TablePage">
 
     <br>
     <br>
@@ -28,24 +29,42 @@
     <div class="title">  All Recipes  </div>
         
     <br>
+    
     <div id = "allRecipeTable">
         <table id="allRecipesTableHead">
             <thead">
-                <tr>
-                    <th>Recipe</th>
-                    <th>Ingredients</th>
-                    <th>Rating</th>
-                    <th>Serves</th>
-                    <th>How Long To Make</th>
-                    <th>Categories</th>
-                    <th>Method</th>
+                <tr id = "headerStyle">
+                   
+                        <th>Recipe</th>
+                        <th>Rating</th>
+                        <th>Serves</th>
+                        <th>How Long To Make</th> 
+                        <th>Method</th>
+                        <th>Categories</th>
+                        <th>Ingredients</th>
+                  
                 </tr>
             </thead>
 
             <tbody id="allRecipesTableBody"></tbody>
         </table>
     </div>
-       
+</div> 
+
+<div id="ViewPage" hidden>
+
+    <div class="behind-text"> hfghf</div> 
+    <span class="Sub-title" id="singleRecipeName"></span>
+    <span class="Sub-title" id="singleRecipeRating"></span>
+    <span class="Sub-title" id="singleRecipeServing"></span>
+    <span class="Sub-title" id="singleRecipeLength"></span>
+    <span class="Sub-title" id="singleRecipeMethod"></span>
+
+
+</div>
+
+
+
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
