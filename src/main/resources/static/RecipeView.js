@@ -43,21 +43,21 @@ function addRecipeToTable(recipeToAdd){
         row.appendChild(nameEntry);
         
         let ratingEntry = document.createElement("td");
-        if (recipe.rating==1){
-            ratingEntry.innerHTML = oneStar;
-        }
-        if (recipe.rating==2){
-            ratingEntry.innerHTML = twoStar;
-        }
-        if (recipe.rating==3){
-            ratingEntry.innerHTML = threeStar;
-        }
-        if (recipe.rating==4){
-            ratingEntry.innerHTML = fourStar;
-        }
-        if (recipe.rating==5){
-            ratingEntry.innerHTML = fiveStar;
-        }
+         if (recipe.rating==1){
+             ratingEntry.innerHTML = oneStar;
+         }
+         if (recipe.rating==2){
+             ratingEntry.innerHTML = twoStar;
+         }
+         if (recipe.rating==3){
+             ratingEntry.innerHTML = threeStar;
+         }
+         if (recipe.rating==4){
+             ratingEntry.innerHTML = fourStar;
+         }
+         if (recipe.rating==5){
+             ratingEntry.innerHTML = fiveStar;
+         }
         row.appendChild(ratingEntry);
         
         let servingEntry = document.createElement("td");
@@ -77,10 +77,10 @@ function addRecipeToTable(recipeToAdd){
         row.addEventListener('click', ()=> getRecipeFromID(recipe.recipeId));
         
     }      
-    
 }
 
 function getRecipeFromID(id){
+    
     axios.get("http://localhost:8080/getRec/" + id)
     .then(function(response) {
         populateViewPage(response.data);

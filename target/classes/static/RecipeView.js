@@ -14,10 +14,10 @@ const editServing = document.getElementById("editRecipeServing");
 const editLength = document.getElementById("editRecipeLength");
 const editMethod = document.getElementById("editRecipeMethod");
 
-const fiveStar = "&#9733; &#9733 &#9733 &#9733 &#9733";
-const fourStar = "&#9733; &#9733 &#9733 &#9733 ";
-const threeStar = "&#9733; &#9733 &#9733 ";
-const twoStar = "&#9733; &#9733 ";
+const fiveStar = "&#9733;&#9733;&#9733;&#9733;&#9733;";
+const fourStar = "&#9733;&#9733;&#9733;&#9733; ";
+const threeStar = "&#9733;&#9733;&#9733; ";
+const twoStar = "&#9733;&#9733; ";
 const oneStar = "&#9733;";
 
 getRecipeAndCreateTable();
@@ -26,7 +26,6 @@ getRecipeAndCreateTable();
 function getRecipeAndCreateTable() {
     axios.get("http://localhost:8080/getAllRec")
     .then(function(response) {
-        console.log(response.data);
         addRecipeToTable(response.data);
     }).catch((error) => {
         console.log(error);
@@ -38,26 +37,27 @@ function addRecipeToTable(recipeToAdd){
     for (let recipe of recipeToAdd) {
         
         let row = document.createElement("tr");
+        
         let nameEntry = document.createElement("td");
         nameEntry.innerHTML = recipe.recipeName;
         row.appendChild(nameEntry);
         
         let ratingEntry = document.createElement("td");
-        if (ratingEntry==1){
-            ratingEntry.innerHTML = oneStar;
-        }
-        if (ratingEntry==2){
-            ratingEntry.innerHTML = twoStar;
-        }
-        if (ratingEntry==3){
-            ratingEntry.innerHTML = threeStar;
-        }
-        if (ratingEntry==4){
-            ratingEntry.innerHTML = fourStar;
-        }
-        if (ratingEntry==5){
-            ratingEntry.innerHTML = fiveStar;
-        }
+         if (recipe.rating==1){
+             ratingEntry.innerHTML = oneStar;
+         }
+         if (recipe.rating==2){
+             ratingEntry.innerHTML = twoStar;
+         }
+         if (recipe.rating==3){
+             ratingEntry.innerHTML = threeStar;
+         }
+         if (recipe.rating==4){
+             ratingEntry.innerHTML = fourStar;
+         }
+         if (recipe.rating==5){
+             ratingEntry.innerHTML = fiveStar;
+         }
         row.appendChild(ratingEntry);
         
         let servingEntry = document.createElement("td");
@@ -77,10 +77,10 @@ function addRecipeToTable(recipeToAdd){
         row.addEventListener('click', ()=> getRecipeFromID(recipe.recipeId));
         
     }      
-    
 }
 
 function getRecipeFromID(id){
+    
     axios.get("http://localhost:8080/getRec/" + id)
     .then(function(response) {
         populateViewPage(response.data);

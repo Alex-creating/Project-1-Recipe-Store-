@@ -301,3 +301,12 @@ tr:nth-child(even):hover{background: rgba(165, 182, 219, 0.651)}
 tr:nth-child(odd) {background: rgb(199, 187, 187)}
 tr:nth-child(odd):hover{background: rgba(161, 151, 151, 0.644)}
 
+#singleRecipeRating{display:inline-block;}
+#ratTitle{display:inline-block;}
+
+#serveTitle{display:inline-block;}
+#singleRecipeServing{display:inline-block;}
+
+
+#deleter{float: right;}
+#updater{float: right;}
