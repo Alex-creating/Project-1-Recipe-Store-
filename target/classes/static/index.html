@@ -8,18 +8,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <ul class = "banner">
-        <li><a href="index.html">Add a Recipe hkhkhjkkjh</a></li>
+        <li class = "mainRecText" onclick="changeToHomePage()">Recipe Store</li>
+        <li><a href="index.html">Add a Recipe</a></li>
         <li><a  href="RecipeViewAllPage.html">View All Recipes</a></li>
-        <li><a href="EditRecipe.html">Edit Your Recipes</a></li>
     </ul>
 
 <br>
-<br>
-
+<div id="Front Page">
 
     <div class="boxed">Recipe  Store</div>     
 <br>
@@ -27,7 +27,6 @@
 <br>
     <div class="title">  Add a Recipe </div>
         
-    <br>
     <br>
 
         <div class="Sub-title"> Recipe Name:
@@ -82,17 +81,10 @@
              </form>
         
             </div>
-            
-            <div class="Sub-title">Method:
-        
-                <div class="textarea-container">
-                  <textarea id="method"></textarea>
-                  <div class="textarea-size"></div>
-               </div>
-            </div>
+      
 
-            <br>
-            <br>
+            
+        
             
             <div class="Sub-title"> Categories:
                 <br>
@@ -101,10 +93,23 @@
                     <option value="BY">Wyoming</option>
     
                   </select>
+                  </div>    
                   <br>
-                  <br>
-        <input class="button" name="submit" type="submit" value="Submit" onclick="addRecipe()"/>
+
+            <div class="Sub-title" >Method:
+        
+                <div id="methodInput" class="textarea-container">
+                  <textarea id="method"></textarea>
+                  <div class="textarea-size"></div>
+               </div>
             </div>
+                  <br>
+                  <br>
+        <input class="submitButton" name="submit" type="submit" value="Submit" onclick="addRecipe()"/>
+    </div>
+            
+<br>
+<br>
 <br>
 <br>
            

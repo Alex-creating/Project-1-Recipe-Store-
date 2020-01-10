@@ -3,6 +3,7 @@ body{
     background-size: cover;
 }
 
+
 .textarea-container {
   position: relative;
   /* you should change this*/
@@ -13,13 +14,18 @@ textarea, .textarea-size {
   min-height: 25px;
   /* need to manually set font and font size */
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 10px;
   box-sizing: border-box;
   padding: 4px;
   border: 1px solid;
 
   overflow: hidden;
-  width: 100%;
+  width: 50%;
+  
+}
+
+#methodInput{
+  padding-left: 25%;
 }
 
 textarea {
@@ -59,10 +65,10 @@ textarea {
 
 .title{
     color: rgb(27, 199, 185);
-    font-size: 42px;
+    font-size: 26px;
     text-align: center;
     font-weight: bold;
-    text-decoration: underline;
+   
     
 }
 
@@ -90,13 +96,12 @@ ul {
     background-color: #cccccc;
     text-align: left;
     vertical-align: middle;
-    padding: 30% 33%;
+    padding: 21% 24%;
     position: absolute;
-    margin-left: 16%;
+    margin-left: 25%;
     opacity: 0.3;
     z-index: -1;
-    min-height: 104%;
-    min-width: 68%;
+
 
   }
 
@@ -113,7 +118,7 @@ ul {
 .select2-results__option{
     background-color: white;
     color: black;
-    font-size: 18.3px;
+    font-size: 19.3px;
 }
 
 .select2-selection__choice{
@@ -136,6 +141,8 @@ ul {
 
   li {
     float: left;
+    font-size: 20px;
+
   }
   
   li a {
@@ -144,13 +151,37 @@ ul {
     text-align: center;
     padding: 16px 26px;
     text-decoration: none;
+  
     
   }
 
-.button{
+.mainRecText{
+  display: block;
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 16px;
+  padding-right: 45px;
+  padding-left: 20px;
+  text-decoration: none;
+  float: left;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.mainRecText:hover{
+  color: rgba(223, 223, 223, 0.459)
+}
+
+.submitButton{
     background-color: rgb(27, 199, 185);
-    font-size:30px;
-    margin-left: 57%;
+    font-size:18px;
+    margin-left: 65%;
+}
+
+
+.buttonEditDelete{
+
 }
   
   /* Change the link color to #111 (black) on hover */
@@ -172,7 +203,7 @@ ul {
     text-align: center;
     padding: 14px 14px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 34px;
   }
 
 
@@ -184,7 +215,7 @@ ul {
     border: none;
     margin-top: 8px;
     margin-right: 8px;
-    font-size: 25px;
+    font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
   }
   
@@ -204,14 +235,14 @@ ul {
   }
 
   body {
-      font-size: 23px;
+      font-size: 12px;
      
   }
 
 .boxed {
     text-align: center;
-    letter-spacing: 15px;
-    font-size: 120px;
+    letter-spacing: 22px;
+    font-size: 90px;
 
 }  
 
@@ -222,7 +253,7 @@ ul {
 }
 
 .sub-title{
-    font-size: 30px;
+    font-size: 18px;
     color:  white;
     text-align: center;
 }
@@ -238,10 +269,12 @@ select{
 table {
   border-collapse: collapse;
   border: 1px solid black;
-  width: 100%;
+  width: 95%;
   text-align: center;
   color: black;
   padding: 15px;
+  margin-left:auto; 
+  margin-right:auto;
 }
 
 th, td {
@@ -263,11 +296,8 @@ td{
 }  
 
 
-tr:nth-child(even) {background: rgb(156, 214, 209)}
-tr:nth-child(even):hover{background: rgba(156, 214, 209, 0.651)}
-tr:nth-child(odd) {background: rgb(232, 238, 178)}
-tr:nth-child(odd):hover{background: rgba(232, 238, 178, 0.644)}
+tr:nth-child(even) {background: rgb(192, 212, 255)}
+tr:nth-child(even):hover{background: rgba(165, 182, 219, 0.651)}
+tr:nth-child(odd) {background: rgb(199, 187, 187)}
+tr:nth-child(odd):hover{background: rgba(161, 151, 151, 0.644)}
 
-.checked {
-  color: orange;
-}

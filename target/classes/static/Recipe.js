@@ -45,3 +45,7 @@ function addRecipe(){
         console.log(error);
     }); 
 }
+
+function changeToHomePage(){
+    window.location = "/index.html";
+}

@@ -16,9 +16,9 @@
    
 
      <ul class = "banner">
+        <li class = "mainRecText" onclick="changeToHomePage()">Recipe Store</li>
         <li><a href="index.html">Add a Recipe</a></li>
         <li><a  href="RecipeViewAllPage.html">View All Recipes</a></li>
-        <li><a href="EditRecipe.html">Edit Your Recipes</a></li>
     </ul>
 
 <div id="TablePage">
@@ -51,24 +51,48 @@
     </div>
 </div> 
 
-<div id="ViewPage" hidden>
+<!----------------End of main page. Start of View Page------------------------------->
 
-    <div class="behind-text"> hfghf</div> 
-    <span class="Sub-title" id="singleRecipeName"></span>
-    <span class="Sub-title" id="singleRecipeRating"></span>
-    <span class="Sub-title" id="singleRecipeServing"></span>
-    <span class="Sub-title" id="singleRecipeLength"></span>
-    <span class="Sub-title" id="singleRecipeMethod"></span>
+<div id="ViewPage" style="display: none;">
+    <div class="behind-text"></div> 
 
+    <br>
+
+    <div class="boxed" id="singleRecipeName"></div>  
+    
+    <div id="ratTitle" class="Sub-title">Rating:</div>
+    <div id="ratResult" class="viewRecipeFormat" class="Sub-title" id="singleRecipeRating"></div>
+
+    <div class="viewRecipeFormat" class="Sub-title" id="singleRecipeServing"></div>
+    <div class="viewRecipeFormat" class="Sub-title" id="singleRecipeLength"></div>
+    <div class="viewRecipeFormat" class="Sub-title" id="singleRecipeMethod"></div>
+
+    <input class="buttonEditDelete" name="submit" type="submit" value="Edit Recipe" id="editButton"/>
+    <input class="buttonEditDelete" name="submit" type="submit" value="Delete Recipe" id="deleteButton"/>
+</div>
+
+<!---------------End of main page. Start of View Page-------------------------------->
+
+
+<div id="editPage" style="display: none;">
+
+    <span>Recipe Name: 
+
+    </span>
+    <div class="viewRecipeFormat" id="editRecipeName"></div>
+    <div class="viewRecipeFormat" class="Sub-title" id="editRecipeRating"></div>
+    <div class="viewRecipeFormat" class="Sub-title" id="editRecipeServing"></div>
+    <div class="viewRecipeFormat" class="Sub-title" id="editRecipeLength"></div>
+    <div class="viewRecipeFormat" class="Sub-title" id="editRecipeMethod"></div>
 
 </div>
 
 
 
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="./RecipeView.js"></script>
+
 </body>
 
 </html>
