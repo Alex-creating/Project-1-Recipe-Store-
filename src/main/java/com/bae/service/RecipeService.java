@@ -1,6 +1,9 @@
 package com.bae.service;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -48,16 +51,7 @@ public class RecipeService {
 	{
 		recRepo.deleteById(id);
 	}
-	public Recipe addIngredientToRecipe(int id, Ingredients ingredient) {
-		Recipe recipeToUpdate = this.findRecipeById(id);
-		recipeToUpdate.getIngredients().add(ingredient);
-		return this.recRepo.saveAndFlush(recipeToUpdate);
-	}
-	public Recipe addCategoryToRecipe(int id, Category category) {
-		Recipe recipeToUpdate = this.findRecipeById(id);
-		recipeToUpdate.getCategories().add(category);
-		return this.recRepo.saveAndFlush(recipeToUpdate);
-	}
+
 	
 	public Recipe createRecipe(Recipe recipeToAdd) 
 	{
@@ -112,5 +106,55 @@ public class RecipeService {
 	
 		return this.recRepo.save(recipeToUpdate);
 	}
+	
+	public Recipe updateRecipeWithIngredients(int recipeId, Collection<Ingredients> ingredients) {
+		this.removePreviousIngredients(recipeId);
+		Recipe recipeToUpdate = this.addIngredientToRecipe(recipeId, ingredients);
+		
+		return recipeToUpdate;
+	}
+
+	public Set<Ingredients> removePreviousIngredients(int recipeId){
+		Recipe recipeToUpdate = this.findRecipeById(recipeId);
+		Set<Ingredients> ingredientsToBeRemoved = new HashSet<>(recipeToUpdate.getIngredients());
+		
+		for (Ingredients i : ingredientsToBeRemoved) {
+			recipeToUpdate.removeIngredients(i);
+		}
+		return recipeToUpdate.getIngredients();
+	}
+	
+	public Recipe addIngredientToRecipe(int recipeId, Collection<Ingredients> ingredients) {
+		Recipe recipeToUpdate = this.findRecipeById(recipeId);
+		recipeToUpdate.getIngredients().addAll(ingredients);
+		return this.recRepo.saveAndFlush(recipeToUpdate);
+	}
+	
+	
+	
+	public Recipe updateRecipeWithCategories(int recipeId, Collection<Category> categories) {
+		this.removePreviousCategories(recipeId);
+		Recipe recipeToUpdate = this.addCategoriesToRecipe(recipeId, categories);
+		
+		return recipeToUpdate;
+	}
+	
+	public Set<Category> removePreviousCategories(int recipeId){
+		Recipe recipeToUpdate = this.findRecipeById(recipeId);
+		Set<Category> categoriesToBeRemoved = new HashSet<>(recipeToUpdate.getCategories());
+		
+		for (Category c : categoriesToBeRemoved) {
+			recipeToUpdate.removeCategories(c);
+		}
+		return recipeToUpdate.getCategories();
+	}
+	
+	public Recipe addCategoriesToRecipe(int recipeId, Collection<Category> categories) {
+		Recipe recipeToUpdate = this.findRecipeById(recipeId);
+		recipeToUpdate.getCategories().addAll(categories);
+		return this.recRepo.saveAndFlush(recipeToUpdate);
+	}
+	
+	
 	
 }

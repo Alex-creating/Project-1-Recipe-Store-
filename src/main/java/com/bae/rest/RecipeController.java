@@ -54,16 +54,17 @@ public class RecipeController {
 	
 	@PutMapping("updateRecipe")
 	public Recipe updateRecipe(@PathParam("id") int recipeId, @RequestBody Recipe recipeToUpdate) {
+	
 		return this.recService.updateRecipe(recipeToUpdate, recipeId);
 	}
 	
 	@PatchMapping("/attachIngredient/{id}")
-	public Recipe addIngredientToRecipe(@PathVariable int id, @RequestBody Ingredients ingredient) {
-		return this.recService.addIngredientToRecipe(id, ingredient);
+	public Recipe addIngredientToRecipe(@PathVariable int id, @RequestBody Collection<Ingredients> ingredient) {
+		return this.recService.updateRecipeWithIngredients(id, ingredient);
 	}
 	
 	@PatchMapping("/attachCategory/{id}")
-	public Recipe addCategoryToRecipe(@PathVariable int id, @RequestBody Category category) {
-		return this.recService.addCategoryToRecipe(id, category);
+	public Recipe addCategoryToRecipe(@PathVariable int id, @RequestBody Collection<Category> category) {
+		return this.recService.updateRecipeWithCategories(id, category);
 	}
 }

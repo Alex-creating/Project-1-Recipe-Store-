@@ -37,6 +37,8 @@ public class Ingredients {
 	public void setIngredientName(String ingredientName) {
 		this.ingredientName = ingredientName;
 	}
+	
+
 
 	@Override
 	public int hashCode() {
