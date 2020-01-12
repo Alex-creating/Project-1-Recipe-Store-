@@ -61,34 +61,44 @@
     <div class="boxed" id="singleRecipeName"></div>  
     
     <div id="ratTitle" class="Sub-title">Rating:</div>
-    <div  id="singleRecipeRating" class="viewRecipeFormat" class="Sub-title"></div>
+    <div  id="singleRecipeRating" class="viewRecipeFormat"></div>
 <br>
     <div id="serveTitle" class="Sub-title">Serving:</div>
-    <div id="singleRecipeServing" class="viewRecipeFormat" class="Sub-title"></div>
+    <div id="singleRecipeServing" class="viewRecipeFormat"></div>
 <br>
     <div id="lengthTitle" class="Sub-title">How Long To Make:</div>
-    <div id="singleRecipeLength"class="viewRecipeFormat" class="Sub-title" ></div>
+    <div id="singleRecipeLength"class="viewRecipeFormat"></div>
 <br>
     <div id="methodTitle" class="Sub-title">Method:</div>
-    <div id="singleRecipeMethod" class="viewRecipeFormat" class="Sub-title" ></div>
+    <div id="singleRecipeMethod" class="viewRecipeFormat"></div>
 
-    <input id="deleter" class="buttonEditDelete" name="submit" type="submit" value="Edit Recipe" id="editButton"/>
-    <input id="updater" class="buttonEditDelete" name="submit" type="submit" value="Delete Recipe" id="deleteButton"/>
+    <input class="buttonEditDelete" name="submit" type="submit" value="Edit Recipe" id="editButton"/>
+    <input class="buttonEditDelete" name="submit" type="submit" value="Delete Recipe" id="deleteButton"/>
 </div>
 
-<!---------------End of main page. Start of View Page-------------------------------->
+<!---------------End of view page. Start of edit Page-------------------------------->
 
 
 <div id="editPage" style="display: none;">
 
-    <span>Recipe Name: 
+    <div class="boxed">Edit your recipe</div>  
 
-    </span>
-    <div class="viewRecipeFormat" id="editRecipeName"></div>
-    <div class="viewRecipeFormat" class="Sub-title" id="editRecipeRating"></div>
-    <div class="viewRecipeFormat" class="Sub-title" id="editRecipeServing"></div>
-    <div class="viewRecipeFormat" class="Sub-title" id="editRecipeLength"></div>
-    <div class="viewRecipeFormat" class="Sub-title" id="editRecipeMethod"></div>
+    <div class="Sub-title">Name: </div>
+    <input id="editRecipeName" class="inputing" type="text">
+
+    <div class="Sub-title">Rating: </div>
+    <input id="editRecipeRating" class="inputing" type="text">
+
+    <div  class="Sub-title">Serves: </div>
+    <input id="editRecipeServing" class="inputing" type="text">
+
+    <div  class="Sub-title">How Long To Make (Minutes): </div>
+    <input id="editRecipeLength" class="inputing" type="text">
+
+    <div  class="Sub-title">Method: </div>
+    <input id="editRecipeMethod" class="inputing" type="text">
+
+    <input class="buttonEditDelete" name="submit" type="submit" value="Edit Recipe" id="editSubmitButton"/>
 
 </div>
 

@@ -19,7 +19,6 @@ $(document).ready(function() {
 //   input.addEventListener('input', autoSize);
 // });
 
-
 function turnToInteger(stringObject){
     return Number.parseInt(stringObject);
 }
@@ -32,6 +31,7 @@ function addRecipe(){
         servingAmount :turnToInteger(document.getElementById('serving').value),
         timeToMake : turnToInteger(document.getElementById('howLong').value),
         method : document.getElementById('method').value
+        //categories: document.getElementById('categories').value
     };
 
     console.log(newRecipe);
@@ -48,4 +48,9 @@ function addRecipe(){
 
 function changeToHomePage(){
     window.location = "/index.html";
+}
+
+function getCategoryData(){
+    var results = $('#category').map(function() { return $(this).val(); }).get();
+    console.log(results);
 }

@@ -99,7 +99,7 @@ ul {
     padding: 21% 24%;
     position: absolute;
     margin-left: 25%;
-    opacity: 0.3;
+    opacity: 0.4;
     z-index: -1;
 
 
@@ -258,6 +258,12 @@ ul {
     text-align: center;
 }
 
+.viewRecipeFormat{
+  font-size: 18px;
+  color:  white;
+  text-align: center;
+}
+
 select{
     text-align: center;
     padding-left: 12px;
@@ -308,5 +314,9 @@ tr:nth-child(odd):hover{background: rgba(161, 151, 151, 0.644)}
 #singleRecipeServing{display:inline-block;}
 
 
-#deleter{float: right;}
-#updater{float: right;}
+#deleteButton{float: right;}
+#editButton{float: right;}
+
+#editPage{
+  text-align: center;
+}

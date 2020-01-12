@@ -8,11 +8,7 @@ const recipeMethod = document.getElementById("singleRecipeMethod");
 const deleteButton = document.getElementById("deleteButton");
 const editButton = document.getElementById("editButton");
 
-const editName = document.getElementById("editRecipeName");
-const editRating = document.getElementById("editRecipeRating");
-const editServing = document.getElementById("editRecipeServing");
-const editLength = document.getElementById("editRecipeLength");
-const editMethod = document.getElementById("editRecipeMethod");
+const editSubmitButton = document.getElementById("editSubmitButton");
 
 const fiveStar = "&#9733;&#9733;&#9733;&#9733;&#9733;";
 const fourStar = "&#9733;&#9733;&#9733;&#9733; ";
@@ -32,6 +28,9 @@ function getRecipeAndCreateTable() {
     });
 }
 
+function turnToInteger(stringObject){
+    return Number.parseInt(stringObject);
+}
 
 function addRecipeToTable(recipeToAdd){ 
     for (let recipe of recipeToAdd) {
@@ -95,11 +94,13 @@ function getRecipeFromID(id){
 }
 
 function populateEditRecipe(recipe){
-    editName.innerText = recipe.recipeName;
-    editRating.innerText = recipe.rating;
-    editServing.innerText = recipe.servingAmount;
-    editLength.innerText = recipe.timeToMake;
-    editMethod.innerText = recipe.method;
+    document.getElementById("editRecipeName").value = recipe.recipeName;
+    document.getElementById("editRecipeRating").value = recipe.rating;
+    document.getElementById("editRecipeServing").value = recipe.servingAmount;
+    document.getElementById("editRecipeLength").value = recipe.timeToMake;
+    document.getElementById("editRecipeMethod").value = recipe.method;
+
+    editSubmitButton.addEventListener('click', ()=>editRecipe(recipe));
 }
 
 
@@ -109,6 +110,26 @@ function populateViewPage(recipe) {
     recipeServing.innerText = recipe.servingAmount;
     recipeLength.innerText = recipe.timeToMake;
     recipeMethod.innerText = recipe.method;
+}
+
+function editRecipe(recipe){
+
+    let edittedRecipe = {
+        recipeName : document.getElementById('editRecipeName').value,
+        rating :turnToInteger(document.getElementById('editRecipeRating').value),
+        servingAmount :turnToInteger(document.getElementById('editRecipeServing').value),
+        timeToMake : turnToInteger(document.getElementById('editRecipeLength').value),
+        method : document.getElementById('editRecipeMethod').value
+    }
+    JSON.stringify(edittedRecipe);
+
+    axios.put('http://localhost:8080/updateRecipe/?recipeId=' + recipe.recipeId, edittedRecipe)
+    .then(function(){
+        window.location = "/RecipeViewAllPage.html";
+    })
+    .catch(function(error){
+        console.log(error);
+    });
 }
 
 function getAllRecipes(){
