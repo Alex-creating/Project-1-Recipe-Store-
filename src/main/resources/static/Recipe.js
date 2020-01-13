@@ -26,12 +26,11 @@ function turnToInteger(stringObject){
 function addRecipe(){
 
     let newRecipe = {  
-        recipeName : document.getElementById('recipeName').value,
+        recipeName : document.getElementById('recipeName').value, 
+        categories: getCategoryData(),
         rating :turnToInteger(document.getElementById('Rating').value),
         servingAmount :turnToInteger(document.getElementById('serving').value),
-        timeToMake : turnToInteger(document.getElementById('howLong').value),
-        method : document.getElementById('method').value
-        //categories: document.getElementById('categories').value
+        timeToMake : turnToInteger(document.getElementById('howLong').value)
     };
 
     console.log(newRecipe);
@@ -54,3 +53,5 @@ function getCategoryData(){
     var results = $('#category').map(function() { return $(this).val(); }).get();
     console.log(results);
 }
+
+function patchInCategory

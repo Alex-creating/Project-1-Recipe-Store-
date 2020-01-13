@@ -85,6 +85,7 @@ function getRecipeFromID(id){
         populateViewPage(response.data);
         $("#TablePage").toggle();
         $("#ViewPage").toggle();
+        debugger;
         deleteButton.addEventListener('click', ()=> deleteRecipe(response.data));
         editButton.addEventListener('click', ()=> populateEditRecipe(response.data));
         editButton.addEventListener('click', ()=> changeToRecipePage());
