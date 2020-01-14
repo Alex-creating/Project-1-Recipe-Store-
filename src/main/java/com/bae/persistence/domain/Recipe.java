@@ -153,9 +153,7 @@ public class Recipe {
 			if (other.recipeName != null)
 				return false;
 		} 
-		else if (!recipeName.equals(other.recipeName))
-			return false;
-		if (servingAmount != other.servingAmount || timeToMake != other.timeToMake)
+		else if (!recipeName.equals(other.recipeName) || servingAmount != other.servingAmount || timeToMake != other.timeToMake)
 			return false;
 		return true;
 	}

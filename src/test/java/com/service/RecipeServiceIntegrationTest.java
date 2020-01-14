@@ -36,9 +36,8 @@ public class RecipeServiceIntegrationTest {
 	
 	private Recipe testRecipe;
 	private Recipe testRecipeWithId;
-	
-	private Collection<Ingredients> ingredientsToAdd;
-	private Collection<Category> categoryToAdd;
+	private Recipe testRecipeWithCategories;
+	private Recipe testRecipeWithIngredients;
 	
 	@Before
 	public void init() {
@@ -46,6 +45,8 @@ public class RecipeServiceIntegrationTest {
 		
 		this.recRepo.deleteAll();
 		this.testRecipeWithId = this.recRepo.save(this.testRecipe);
+		this.testRecipeWithCategories = this.recRepo.save(this.testRecipe);
+		this.testRecipeWithIngredients = this.recRepo.save(this.testRecipe);
 	}
 
 	@Test
@@ -81,16 +82,24 @@ public class RecipeServiceIntegrationTest {
 	@Test
 	public void testUpdateRecipeWithCategories() {
 		Collection<Category> categoryToAdd = new HashSet<>();
-		Category meat =new Category("Meat");
-		categoryToAdd.add(meat);
-	//	categoryToAdd.add(new Category("Tasty"));
+		categoryToAdd.add(new Category("Meat"));
+		categoryToAdd.add(new Category("Tasty"));
+		
+		Recipe recipeWithCat = this.recService.addCategoriesToRecipe(testRecipeWithCategories.getRecipeId(), categoryToAdd);
 		
 		this.recService.updateRecipeWithCategories(this.testRecipeWithId.getRecipeId(), categoryToAdd);
-	//	assertThat((this.testRecipeWithId).contains(meat));
+		assertEquals((this.testRecipeWithId), recipeWithCat);
 	}
 	
 	@Test
 	public void testUpdateRecipeWithIngredients() {
+		Collection<Ingredients> ingredientToAdd = new HashSet<>();
+		ingredientToAdd.add(new Ingredients("Pasta"));
+		ingredientToAdd.add(new Ingredients("Tomato"));
 		
+		Recipe recipeWithIng = this.recService.addIngredientToRecipe(testRecipeWithIngredients.getRecipeId(), ingredientToAdd);
+		
+		this.recService.updateRecipeWithIngredients(this.testRecipeWithId.getRecipeId(), ingredientToAdd);
+		assertEquals((this.testRecipeWithId), recipeWithIng);
 	}
 }
