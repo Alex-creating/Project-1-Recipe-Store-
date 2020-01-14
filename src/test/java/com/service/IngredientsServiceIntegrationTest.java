@@ -49,10 +49,10 @@ public class IngredientsServiceIntegrationTest {
 		assertEquals(this.testIngredientsWithId, this.ingService.createIngredient(testIngredients));
 	}
 
-//	@Test
-//	public void testDeleteIngredientsById() {
-//		assertThat(this.ingService.deleteIngredientsById(1)).
-//	}
+	@Test
+	public void testDeleteIngredientsById() {
+		assertThat(this.ingService.deleteIngredientById(this.testIngredientsWithId.getIngredientId())).isFalse();
+	}
 
 	@Test
 	public void testFindIngredientsByID() {

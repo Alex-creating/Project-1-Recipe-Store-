@@ -7,8 +7,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -23,8 +21,6 @@ public class Category {
 	Set<Recipe> recipeHasCategories;
 	
 
-	
-	
 	public int getCategoryId() {
 		return categoryId;
 	}
@@ -63,7 +59,8 @@ public class Category {
 		if (categoryName == null) {
 			if (other.categoryName != null)
 				return false;
-		} else if (!categoryName.equals(other.categoryName))
+		} 
+		else if (!categoryName.equals(other.categoryName))
 			return false;
 		return true;
 	}

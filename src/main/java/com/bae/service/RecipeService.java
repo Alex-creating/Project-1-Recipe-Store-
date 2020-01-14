@@ -47,9 +47,10 @@ public class RecipeService {
 	}
 	
 
-	public void deleteRecipeById(int id) 
+	public boolean deleteRecipeById(int id) 
 	{
 		recRepo.deleteById(id);
+		return this.recRepo.existsById(id);
 	}
 
 	
@@ -67,7 +68,7 @@ public class RecipeService {
 		if (recipeToAdd.getServingAmount() == 0) {
 			throw new InvalidEntryException();
 		}
-		if (specialCharacterChecker(recipeToAdd.getRecipeName()) == false) {
+		if (!specialCharacterChecker(recipeToAdd.getRecipeName())) {
 			throw new InvalidEntryException();
 		}
 		if (StringUtils.isNumeric(recipeToAdd.getRecipeName())) {
@@ -97,7 +98,7 @@ public class RecipeService {
 		if (recipeToUpdate.getServingAmount() == 0) {
 			throw new InvalidEntryException();
 		}
-		if (specialCharacterChecker(recipeToUpdate.getRecipeName()) == false) {
+		if (!specialCharacterChecker(recipeToUpdate.getRecipeName())) {
 			throw new InvalidEntryException();
 		}
 		if (StringUtils.isNumeric(recipeToUpdate.getRecipeName())) {
@@ -109,9 +110,8 @@ public class RecipeService {
 	
 	public Recipe updateRecipeWithIngredients(int recipeId, Collection<Ingredients> ingredients) {
 		this.removePreviousIngredients(recipeId);
-		Recipe recipeToUpdate = this.addIngredientToRecipe(recipeId, ingredients);
 		
-		return recipeToUpdate;
+		return this.addIngredientToRecipe(recipeId, ingredients);
 	}
 
 	public Set<Ingredients> removePreviousIngredients(int recipeId){
@@ -130,13 +130,10 @@ public class RecipeService {
 		return this.recRepo.saveAndFlush(recipeToUpdate);
 	}
 	
-	
-	
 	public Recipe updateRecipeWithCategories(int recipeId, Collection<Category> categories) {
 		this.removePreviousCategories(recipeId);
-		Recipe recipeToUpdate = this.addCategoriesToRecipe(recipeId, categories);
 		
-		return recipeToUpdate;
+		return this.addCategoriesToRecipe(recipeId, categories);
 	}
 	
 	public Set<Category> removePreviousCategories(int recipeId){

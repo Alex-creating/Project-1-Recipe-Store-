@@ -39,15 +39,16 @@ public class IngredientsService {
 		return this.ingRepo.findById(id).orElseThrow(IngredientNotFound::new);
 	}
 
-	public void deleteIngredientById(int ingredientId) {
+	public boolean deleteIngredientById(int ingredientId) {
 		ingRepo.deleteById(ingredientId);
+		return this.ingRepo.existsById(ingredientId);
 	}
 
 	public Ingredients createIngredient(Ingredients ingredientToAdd) {
 		if (ingredientToAdd.getIngredientName().length()<3 || ingredientToAdd.getIngredientName().length()>50) {
 			 throw new InvalidEntryException();
 			}
-		if (specialCharacterChecker(ingredientToAdd.getIngredientName()) == false) {
+		if (!specialCharacterChecker(ingredientToAdd.getIngredientName())) {
 			throw new InvalidEntryException();
 		}
 		if (StringUtils.isNumeric(ingredientToAdd.getIngredientName())) {
@@ -65,7 +66,7 @@ public class IngredientsService {
 		if (ingredientToUpdate.getIngredientName().length()<3 || ingredientToUpdate.getIngredientName().length()>50) {
 			 throw new InvalidEntryException();
 			}
-		if (specialCharacterChecker(ingredientToUpdate.getIngredientName()) == false) {
+		if (!specialCharacterChecker(ingredientToUpdate.getIngredientName())) {
 			throw new InvalidEntryException();
 		}
 		if (StringUtils.isNumeric(ingredient.getIngredientName())) {

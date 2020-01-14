@@ -2,8 +2,6 @@ package com.bae.persistence.domain;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -109,7 +107,7 @@ public class Recipe {
 	public Recipe() {
 	}
 
-	public Recipe(String recipeName, String method, int rating, int timeToMake, int servingAmount, Ingredients...recipeHIngredients) {
+	public Recipe(String recipeName, String method, int rating, int timeToMake, int servingAmount) {
 		super();
 
 		this.recipeName = recipeName;
@@ -144,7 +142,8 @@ public class Recipe {
 		if (method == null) {
 			if (other.method != null)
 				return false;
-		} else if (!method.equals(other.method))
+		} 
+		else if (!method.equals(other.method))
 			return false;
 		if (rating != other.rating)
 			return false;
@@ -153,11 +152,10 @@ public class Recipe {
 		if (recipeName == null) {
 			if (other.recipeName != null)
 				return false;
-		} else if (!recipeName.equals(other.recipeName))
+		} 
+		else if (!recipeName.equals(other.recipeName))
 			return false;
-		if (servingAmount != other.servingAmount)
-			return false;
-		if (timeToMake != other.timeToMake)
+		if (servingAmount != other.servingAmount || timeToMake != other.timeToMake)
 			return false;
 		return true;
 	}

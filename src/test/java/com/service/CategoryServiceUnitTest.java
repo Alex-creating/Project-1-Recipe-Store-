@@ -152,15 +152,6 @@ public class CategoryServiceUnitTest {
 		});
 	}
 	
-//	@Test
-//	public void duplicateNameTest() {
-//		testFailingCategory.setCategoryName("Meat");
-//		this.catList.add(testFailingCategory);
-//		when(this.catRepo.findAll()).thenReturn(this.catList);
-//		assertTrue(this.catService.duplicateCategory(this.testCategory));
-//		verify(this.catRepo, times(1)).findAll();
-//	}
-	
 	@Test
 	public void categoryNameAcceptableTest() {
 		this.testCategory.setCategoryName("WordsAndNumbers123");

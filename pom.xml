@@ -51,11 +51,6 @@
     		<artifactId>commons-lang3</artifactId>
     	</dependency>
 		
-	<!--	<dependency>
-			<groupId>com.relevantcodes</groupId>
-			<artifactId>extentreports</artifactId>
-			<version>2.41.2</version>
-		</dependency> -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -65,7 +60,6 @@
 	<build>
 	<finalName>${project.artifactId}</finalName>
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
@@ -97,6 +91,7 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 <packaging>war</packaging>
 
 </project>

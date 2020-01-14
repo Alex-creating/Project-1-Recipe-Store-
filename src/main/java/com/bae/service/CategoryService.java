@@ -25,11 +25,6 @@ public class CategoryService {
 		Matcher matcher = pattern.matcher(checkedName);
 		return matcher.matches();
 	}
-	
-//	public Boolean duplicateCategory(Category category) {
-//		return this.getAllCategories().contains(category);
-//	}
-	
 
 	public CategoryService(CategoryRepo catRepo) {
 		this.catRepo = catRepo;
@@ -46,9 +41,10 @@ public class CategoryService {
 	}
 	
 
-	public void deleteCategoryById(int categoryId) 
+	public boolean deleteCategoryById(int categoryId) 
 	{
 		catRepo.deleteById(categoryId);
+		return this.catRepo.existsById(categoryId);
 	}
 	
 	public Category createCategory(Category categoryToAdd) 
@@ -57,12 +53,9 @@ public class CategoryService {
 		if (categoryToAdd.getCategoryName().length()<3 || categoryToAdd.getCategoryName().length()>50) {
 			throw new InvalidEntryException();
 		}	
-		if (specialCharacterChecker(categoryToAdd.getCategoryName()) == false) {
+		if (!specialCharacterChecker(categoryToAdd.getCategoryName())) {
 			throw new InvalidEntryException();
 		}
-	//	if (catRepo.findAll().contains(categoryToAdd)) {
-	//		throw new InvalidEntryException();
-	//	}
 		if (StringUtils.isNumeric(categoryToAdd.getCategoryName())) {
 			throw new InvalidEntryException();
 		}
@@ -79,12 +72,9 @@ public class CategoryService {
 		if (categoryToUpdate.getCategoryName().length()<3 || categoryToUpdate.getCategoryName().length()>50) {
 			throw new InvalidEntryException();
 			}
-		if (specialCharacterChecker(categoryToUpdate.getCategoryName()) == false) {
+		if (!specialCharacterChecker(categoryToUpdate.getCategoryName())) {
 			throw new InvalidEntryException();
 		}
-//		if (duplicateCategory(categoryToUpdate)) {
-//			throw new InvalidEntryException();
-//		}
 		if (StringUtils.isNumeric(categoryToUpdate.getCategoryName())) {
 			throw new InvalidEntryException();
 		}
