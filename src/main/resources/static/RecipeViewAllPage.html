@@ -39,7 +39,6 @@
                         <th>Rating</th>
                         <th>Serves</th>
                         <th>How Long To Make</th> 
-                        <th>Method</th>
                         <th>Categories</th>
                         <th>Ingredients</th>
                   
@@ -69,8 +68,16 @@
     <div id="lengthTitle" class="Sub-title">How Long To Make:</div>
     <div id="singleRecipeLength"class="viewRecipeFormat"></div>
 <br>
+     <div class="Sub-title">Ingredients:</div>
+     <div id="singleRecipeIngredients"class="viewRecipeFormat"></div>
+<br>
+    <div class="Sub-title">Categories</div>
+    <div id="singleRecipeCategories"class="viewRecipeFormat"></div>
+<br>
     <div id="methodTitle" class="Sub-title">Method:</div>
     <div id="singleRecipeMethod" class="viewRecipeFormat"></div>
+
+   
 
     <input class="buttonEditDelete" name="submit" type="submit" value="Edit Recipe" id="editButton"/>
     <input class="buttonEditDelete" name="submit" type="submit" value="Delete Recipe" id="deleteButton"/>
@@ -94,6 +101,22 @@
 
     <div  class="Sub-title">How Long To Make (Minutes): </div>
     <input id="editRecipeLength" class="inputing" type="text">
+
+    <div class="Sub-title"> Current Ingredients:
+        <div id="currentIngredients" class="Sub-title"> </div>
+        <select id="editIngredient" class="js-example-basic-multiple" name="ingredient" multiple="multiple">
+
+          </select>
+       
+    </div>
+
+    <div class="Sub-title"> Current Categories:
+        <div id="currentCategories" class="Sub-title"> </div>
+        <select id="editCategory" class="js-example-basic-multiple" name="ingredient" multiple="multiple">
+
+          </select>
+       
+    </div>
 
     <div  class="Sub-title">Method: </div>
     <input id="editRecipeMethod" class="inputing" type="text">

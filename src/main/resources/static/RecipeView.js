@@ -4,6 +4,12 @@ const recipeRating = document.getElementById("singleRecipeRating");
 const recipeServing = document.getElementById("singleRecipeServing");
 const recipeLength = document.getElementById("singleRecipeLength");
 const recipeMethod = document.getElementById("singleRecipeMethod");
+const recipeCategories = document.getElementById('singleRecipeCategories');
+const recipeIngredients = document.getElementById('singleRecipeIngredients');
+
+const currentCategories = document.getElementById('currentCategories');
+const currentIngredients = document.getElementById('currentIngredients');
+
 
 const deleteButton = document.getElementById("deleteButton");
 const editButton = document.getElementById("editButton");
@@ -16,12 +22,19 @@ const threeStar = "&#9733;&#9733;&#9733; ";
 const twoStar = "&#9733;&#9733; ";
 const oneStar = "&#9733;";
 
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2({
+        tags: true
+    });
+});
+
 getRecipeAndCreateTable();
 
 
 function getRecipeAndCreateTable() {
     axios.get("http://localhost:8080/getAllRec")
     .then(function(response) {
+        console.log(response);
         addRecipeToTable(response.data);
     }).catch((error) => {
         console.log(error);
@@ -31,6 +44,9 @@ function getRecipeAndCreateTable() {
 function turnToInteger(stringObject){
     return Number.parseInt(stringObject);
 }
+
+
+
 
 function addRecipeToTable(recipeToAdd){ 
     for (let recipe of recipeToAdd) {
@@ -42,21 +58,7 @@ function addRecipeToTable(recipeToAdd){
         row.appendChild(nameEntry);
         
         let ratingEntry = document.createElement("td");
-         if (recipe.rating==1){
-             ratingEntry.innerHTML = oneStar;
-         }
-         if (recipe.rating==2){
-             ratingEntry.innerHTML = twoStar;
-         }
-         if (recipe.rating==3){
-             ratingEntry.innerHTML = threeStar;
-         }
-         if (recipe.rating==4){
-             ratingEntry.innerHTML = fourStar;
-         }
-         if (recipe.rating==5){
-             ratingEntry.innerHTML = fiveStar;
-         }
+        ratingEntry.innerHTML = starSystem(recipe);
         row.appendChild(ratingEntry);
         
         let servingEntry = document.createElement("td");
@@ -71,11 +73,98 @@ function addRecipeToTable(recipeToAdd){
         let lengthEntry = document.createElement("td");
         lengthEntry.innerHTML = recipe.timeToMake + " minutes";
         row.appendChild(lengthEntry);
-        table.appendChild(row); 
-     
-        row.addEventListener('click', ()=> getRecipeFromID(recipe.recipeId));
         
+        let categoryEntry = document.createElement("td");   
+        categoryEntry.innerHTML = catAsString(recipe);
+        row.appendChild(categoryEntry);
+
+        let ingredientEntry = document.createElement("td"); 
+        ingredientEntry.innerHTML = ingAsString(recipe);
+        row.appendChild(ingredientEntry);
+        
+        table.appendChild(row); 
+
+        row.addEventListener('click', ()=> getRecipeFromID(recipe.recipeId));
     }      
+}
+
+function catAsString(recipe){
+    
+    let result = '';
+
+    if(recipe.categories.length == 0){
+        return "";
+    }
+
+    else if(recipe.categories.length == 1){
+        for(let i = 0; i < recipe.categories.length; i++ ){
+            let a = recipe.categories;
+            let b = a[i];
+          
+            result += b.categoryName;
+        }
+        
+    }
+
+    else{       
+        result = recipe.categories[0].categoryName;
+
+        for(let i = 1; i < recipe.categories.length; i++ ){
+            let a = recipe.categories;
+            let b = a[i];
+     
+            result += ", " + b.categoryName;
+        }
+        
+    }
+    return result;
+}
+
+function ingAsString(recipe){
+    let ingResult = '';
+
+    if(recipe.ingredients.length==0){ 
+        return "";
+    }
+    else if(recipe.ingredients.length == 1){
+        for(let i = 0; i < recipe.ingredients.length; i++ ){
+            let a = recipe.ingredients;
+            let b = a[i];
+          
+            ingResult += b.ingredientName;
+            
+        }
+        
+    }
+    else{       
+        ingResult = recipe.ingredients[0].ingredientName;
+        for(let i = 1; i < recipe.ingredients.length; i++ ){
+            let a = recipe.ingredients;
+            let b = a[i];
+     
+            ingResult += ", " + b.ingredientName;
+        }
+        
+    }
+    return ingResult;
+}
+
+function starSystem(recipe){
+    if (recipe.rating==1){
+        return oneStar;
+    }
+    if (recipe.rating==2){
+        return twoStar;
+    }
+    if (recipe.rating==3){
+        return threeStar;
+    }
+    if (recipe.rating==4){
+        return fourStar;
+    }
+    if (recipe.rating==5){
+        return fiveStar;
+    }
 }
 
 function getRecipeFromID(id){
@@ -85,7 +174,7 @@ function getRecipeFromID(id){
         populateViewPage(response.data);
         $("#TablePage").toggle();
         $("#ViewPage").toggle();
-        debugger;
+        
         deleteButton.addEventListener('click', ()=> deleteRecipe(response.data));
         editButton.addEventListener('click', ()=> populateEditRecipe(response.data));
         editButton.addEventListener('click', ()=> changeToRecipePage());
@@ -101,6 +190,9 @@ function populateEditRecipe(recipe){
     document.getElementById("editRecipeLength").value = recipe.timeToMake;
     document.getElementById("editRecipeMethod").value = recipe.method;
 
+    currentIngredients.innerText = ingAsString(recipe);
+    currentCategories.innerText = catAsString(recipe);
+
     editSubmitButton.addEventListener('click', ()=>editRecipe(recipe));
 }
 
@@ -111,6 +203,9 @@ function populateViewPage(recipe) {
     recipeServing.innerText = recipe.servingAmount;
     recipeLength.innerText = recipe.timeToMake;
     recipeMethod.innerText = recipe.method;
+    recipeIngredients.innerText = ingAsString(recipe);
+    recipeCategories.innerText = catAsString(recipe);
+
 }
 
 function editRecipe(recipe){
@@ -124,14 +219,44 @@ function editRecipe(recipe){
     }
     JSON.stringify(edittedRecipe);
 
+
     axios.put('http://localhost:8080/updateRecipe/?recipeId=' + recipe.recipeId, edittedRecipe)
-    .then(function(){
-        window.location = "/RecipeViewAllPage.html";
+    .then(function(){ 
+        axios.patch('http://localhost:8080/attachCategory/' +recipe.recipeId, getCategoryData())
+        .then(function(){
+             axios.patch('http://localhost:8080/attachIngredient/' +recipe.recipeId, getIngredientData())
+             .then(function(){
+                  window.location = "/RecipeViewAllPage.html";
+             });
+        });
     })
     .catch(function(error){
         console.log(error);
     });
 }
+
+function getCategoryData(){
+    let results = $('#editCategory')[0].innerText.split("\n").map(c => { 
+        return {
+            "categoryName": c
+        }
+    });
+    console.log(results);
+    return results;
+}
+function getIngredientData(){
+    let results = $('#editIngredient')[0].innerText.split("\n").map(i => { 
+        return {
+            "ingredientName": i
+        }
+    });
+    
+    // .map(function() { return { "ingredientName": $(this).val()} }).get();
+    console.log(results);
+    return results;
+}
+
+
 
 function getAllRecipes(){
 
