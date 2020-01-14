@@ -16,6 +16,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.bae.persistence.domain.Category;
+import com.bae.persistence.domain.Ingredients;
 import com.bae.persistence.domain.Recipe;
 import com.bae.rest.RecipeController;
 import com.bae.service.RecipeService;
@@ -30,17 +32,40 @@ public class RecipeControllerUnitTest {
 	private RecipeService recService;
 	
 	private List<Recipe> recList;
+	private List<Ingredients> ingList;
+	private List<Category> catList;
+	
 	private Recipe testRec;
 	private Recipe testRecWithId;
+	private Ingredients testIng;
+	private Ingredients testIngWithId;
+	private Category testCat;
+	private Category testCatWithId;
+	
 	final int id = 1;
 	
 	@Before
 	public void init() {
 		this.recList = new ArrayList<>();
-		this.recList.add(testRec);
+		this.ingList = new ArrayList<>();
+		this.catList = new ArrayList<>();
+		
+		
 		this.testRec = new Recipe("Lasagna", "bake", 12, 12, 125);
 		this.testRecWithId = new Recipe(testRec.getRecipeName(), testRec.getMethod(), testRec.getRating(), testRec.getTimeToMake(), testRec.getServingAmount());
 		this.testRecWithId.setRecipeId(id);
+		
+		this.testCat = new Category("meat");
+		this.testCatWithId = new Category(testCat.getCategoryName());
+		this.testCatWithId.setCategoryId(this.id);
+		
+		this.testIng = new Ingredients("potatoes");
+		this.testIngWithId = new Ingredients(testIng.getIngredientName());
+		this.testIngWithId.setIngredientId(this.id);
+		
+		this.recList.add(testRec);
+		this.ingList.add(testIng);
+		this.catList.add(testCat);
 	}
 	
 	@Test
@@ -91,5 +116,14 @@ public class RecipeControllerUnitTest {
 
 		verify(this.recService, times(1)).updateRecipe(newRecipe, this.id);
 	}
+	
+//	@Test
+//	public void addIngredientsTest() {
+//		this.testRecWithId.getIngredients().addAll(ingList);
+//		when(this.recService.addIngredientToRecipe(this.id, this.ingList)).thenReturn(this.testRecWithId);
+//		
+//		assertEquals(this.testRecWithId, this.controller.addIngredientToRecipe(this.id, this.ingList));
+//		verify(this.recService, times(1)).addIngredientToRecipe(this.id, this.ingList);
+//	}
 
 }
