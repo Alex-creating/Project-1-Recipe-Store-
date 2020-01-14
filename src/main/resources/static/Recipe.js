@@ -37,8 +37,8 @@ function addRecipe(){
     };
 
     
-    let stringed = JSON.stringify(newRecipe);
-    axios.post('http://localhost:8080/createRecipe', stringed)
+    JSON.stringify(newRecipe);
+    axios.post('http://localhost:8080/createRecipe', newRecipe)
     .then(function(response) {
         window.alert("You have added " + document.getElementById('recipeName').value + " to your store!");
         window.location = "/RecipeViewAllPage.html";
