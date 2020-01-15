@@ -97,19 +97,21 @@
 
     <div class="boxed">Edit your recipe</div>  
 
-    <div class="Sub-title">Name: </div>
+    <div class="behind-text-edit">
+
+    <div class="View-title">Name: </div>
     <input id="editRecipeName" class="inputing" type="text">
 
-    <div class="Sub-title">Rating: </div>
+    <div class="View-title">Rating: </div>
     <input id="editRecipeRating" class="inputing" type="text">
 
-    <div  class="Sub-title">Serves: </div>
+    <div  class="View-title">Serves: </div>
     <input id="editRecipeServing" class="inputing" type="text">
 
-    <div  class="Sub-title">How Long To Make (Minutes): </div>
+    <div  class="View-title">How Long To Make (Minutes): </div>
     <input id="editRecipeLength" class="inputing" type="text">
 
-    <div class="Sub-title"> Current Ingredients:
+    <div class="View-title"> Current Ingredients:
         <div id="currentIngredients" class="Sub-title"> </div>
         <select id="editIngredient" class="js-example-basic-multiple" name="ingredient" multiple="multiple">
 
@@ -117,7 +119,7 @@
        
     </div>
 
-    <div class="Sub-title"> Current Categories:
+    <div class="View-title"> Current Categories:
         <div id="currentCategories" class="Sub-title"> </div>
         <select id="editCategory" class="js-example-basic-multiple" name="ingredient" multiple="multiple" min="3">
 
@@ -125,14 +127,100 @@
        
     </div>
 
-    <div  class="Sub-title">Method: </div>
+    <div  class="View-title">Method: </div>
     <input id="editRecipeMethod" class="inputing" type="text">
 
     <input class="buttonEditDelete" name="submit" type="submit" value="Edit Recipe" id="editSubmitButton"/>
 
+    </div>
+
 </div>
 
+<!-- <div class="boxed"><span>Recipe  Store</span></div>     
+<br>
+   
+<br>
+    <div class="title">  Add a Recipe </div>
+        
+    <br>
 
+        <div class="Sub-title"> Recipe Name:
+            
+                <form  action="/action_page.php">
+                    <input id="recipeName" class="inputing" type="text">
+
+    <br>
+                </form>
+            </div>
+
+    <div class="Sub-title"> Ingredients:
+        <br>
+        <select id="ingredientInputer" class="js-example-basic-multiple" name="ingredient" multiple="multiple">
+            <option value="">Add ingredients</option><br> 
+        </select>
+
+    </div>
+
+    <br>
+
+    <div  class="Sub-title">Rating:
+    
+    <br>
+
+    <select id="Rating">
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5">5 Stars</option>
+      </select>
+    </div>
+
+    <br>
+
+      <div class="Sub-title">Serves How Many?
+
+        <form  action="/action_page.php">
+            <input id="serving" class="inputing" type="number" min="1">
+            <br>
+         </form>
+    
+        </div>
+
+        <div class="Sub-title">How Many Minutes Did it Take?
+
+            <form  action="/action_page.php">
+                <input id="howLong" class="inputing" type="number" min="0">
+                
+             </form>
+        
+            </div>
+      
+
+            
+        
+            
+            <div class="Sub-title"> Categories:
+                <br>
+                <select id="categoryInputer" class="js-example-basic-multiple" name="category" multiple="multiple">
+                    <option value="">Add a category</option><br>
+                   
+    
+                  </select>
+                  </div>    
+                  <br>
+
+            <div class="Sub-title" >Method:
+        
+                <div id="methodInput" class="textarea-container">
+                  <textarea id="method"></textarea>
+                  <div class="textarea-size"></div>
+               </div>
+            </div>
+                  <br>
+                  <br>
+        <input class="submitButton" name="submit" type="submit" value="Submit" onclick="checkRecipeDetails()"/>
+     </div> -->
 
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

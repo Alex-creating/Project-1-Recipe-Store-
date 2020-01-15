@@ -144,12 +144,12 @@ ul {
     float: center;
     /* z-index: -3; */
     border-radius: 25px;
-    margin-left: 33.5%;
+    margin-left: 30.5%;
 
   }
 
   .behind-text-view {
-    background-color: #3d3d3d57;
+    background-color: #3d3d3d94;
     text-align: left;
     vertical-align: middle;
     padding: 1%;
@@ -163,8 +163,23 @@ ul {
     min-width: 39%;
   }
 
+  .behind-text-edit{
+    background-color: #3d3d3d94;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1%;
+    /* position: absolute; */
+    /* opacity: 0.6; */
+    z-index: -1;
+    border-radius: 25px;
+    margin-left: 31%;
+
+    max-width: 31%;
+    min-width: 31%;
+  }
+
   .behind-text-viewMethod{
-    background-color: #3d3d3d57;
+    background-color: #3d3d3d94;
     text-align: left;
     vertical-align: middle;
     padding: 1% 5%;
@@ -177,10 +192,6 @@ ul {
     max-width: 40%;
     min-width: 39%;
   }
-
-
-
-
 
   .banner{
         background-color: #333;
