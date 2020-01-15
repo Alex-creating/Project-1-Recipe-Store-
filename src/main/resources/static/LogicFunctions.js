@@ -5,7 +5,7 @@ function checkRecipeDetails(){
     correctField("recipeName");
     correctField("serving");
     correctField("howLong");
-    
+
     if (checkRecipeName()){
         return false;
     }
@@ -23,6 +23,9 @@ function checkRecipeDetails(){
 
 function checkRecipeName(){
     let recipeValue = document.getElementById("recipeName").value;
+    var iChars = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?";
+    var numChars = "0123456789";
+    var alphaChars = "abcdefghijklmnopqrstuvwxyz";
 
     if (recipeValue.length <3){
         wrongField("recipeName");
@@ -34,9 +37,45 @@ function checkRecipeName(){
         alert("Please enter a name shorter than 50 characters");
         return true;
     }
+    
+    for (var i = 0; i < recipeValue.length; i++) {
+    if (iChars.indexOf(recipeValue.charAt(i)) != -1) {
+        wrongField("recipeName");
+        alert ("Your recipe cannot contain special characters");
+        return true;
+    }
+    for (var i = 0; i < recipeValue.length; i++) {
+        if (iChars.indexOf(recipeValue.charAt(i)) != -1) {
+            wrongField("recipeName");
+            alert ("Your recipe cannot contain special characters");
+            return true;
+        } 
+}
+    }
+    var count = 0;
+
+    for (var k = 0; k < recipeValue.length; k++) {
+        if (numChars.indexOf(recipeValue.charAt(k)) != -1) {
+            for (var j = 0; j < recipeValue.length; j++) {
+                if (alphaChars.indexOf(recipeValue.charAt(j)) != -1) {
+                    count++;
+                }
+            }
+                if(count == 0){
+                    wrongField("recipeName");
+                    alert ("Your recipe cannot contain only numbers");
+                    return true;
+                
+            }
+        }
+    }
 
     return false;
 }
+
+
+
+
 
 function checkServing(){
     let servingValue = document.getElementById('serving').value;
