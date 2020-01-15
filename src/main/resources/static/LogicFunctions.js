@@ -1,19 +1,25 @@
 let recipeValue = document.getElementById('recipeName').value;
 
 
-const pattern = "[a-zA-Z0-9 ]{3-50}";
 
 function checkRecipeDetails() {
-
-    
 
 }
 
 function checkRecipeName(){
-    let result = recipeValue.match(pattern);
-
-    if (result == false){
-        alert("Wrong");
-        return false;
+    if (document.getElementById("recipeName").value.length <3){
+        wrongField("recipeName");
+        alert("Please enter a name longer than 2 characters");
+        window
     }
+    if (document.getElementById("recipeName").value.length >50){
+        wrongField("recipeName");
+
+    }
+
+}
+
+function wrongField(whatIsWrong){
+    document.getElementById(whatIsWrong).style.backgroundColor = "#FF8383";
+    return false;
 }

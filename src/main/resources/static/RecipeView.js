@@ -28,6 +28,8 @@ $(document).ready(function() {
     });
 });
 
+
+
 getRecipeAndCreateTable();
 
 
@@ -36,6 +38,20 @@ function getRecipeAndCreateTable() {
     .then(function(response) {
         console.log(response);
         addRecipeToTable(response.data);
+        $('#allRecipesTableHead').DataTable(
+            {"columns" : [
+                null,
+                null,
+                null,
+                null,
+                {"orderable" : false },
+                {"orderable" : false }
+            ], 
+            "paging" : false,
+            "info" : false
+        }
+            
+        );
     }).catch((error) => {
         console.log(error);
     });
@@ -85,7 +101,7 @@ function addRecipeToTable(recipeToAdd){
         table.appendChild(row); 
 
         row.addEventListener('click', ()=> getRecipeFromID(recipe.recipeId));
-    }      
+    }    
 }
 
 function catAsString(recipe){

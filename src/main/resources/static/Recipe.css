@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://media.gettyimages.com/photos/wood-table-with-blur-light-in-night-caferestaurant-background-picture-id683388474?b=1&k=6&m=683388474&s=612x612&w=0&h=xd9A1v91tUdQphU2G2ETl91PVo4c3Kpo4Xnk-4mD_pc=");
+    background-image: url("https://i.pinimg.com/originals/f1/2c/46/f12c46485efa00faa633a74fdc6ea134.jpg");
     background-size: cover;
 }
 
@@ -85,6 +85,13 @@ textarea {
     text-align: center;
 }
 
+#method:hover{
+  background-color: rgb(194, 255, 250);
+}
+#Rating:hover{
+  background-color: rgb(194, 255, 250);
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -94,7 +101,7 @@ ul {
   }
 
   .behind-text{
-    background-color: #cccccc;
+    background-color: #3d3d3d;
     text-align: left;
     vertical-align: middle;
     padding: 21% 24%;
@@ -102,7 +109,7 @@ ul {
     margin-left: 25%;
     opacity: 0.4;
     z-index: -1;
-
+    border-radius: 25px;
 
   }
 
@@ -244,8 +251,19 @@ ul {
     text-align: center;
     letter-spacing: 22px;
     font-size: 90px;
+    
+} 
 
-}  
+.boxed span{
+  background-color:#3d3d3d70;
+    border-radius: 25px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+
 
 .row{
     padding: 2px;
@@ -275,13 +293,33 @@ select{
 
 table {
   border-collapse: collapse;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 95%;
   text-align: center;
   color: black;
   padding: 15px;
   margin-left:auto; 
   margin-right:auto;
+}
+
+table thead{
+  color: white;
+}
+table.dataTable.no-footer{
+  border-bottom: none !important;
+}
+
+.dataTables_filter{
+  margin-right: 0.4%;
+  padding-right: 1%;
+}
+
+label{
+  color: white;
+  text-align: center;
+  font-size: 19.2px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px;
 }
 
 th, td {
@@ -299,14 +337,14 @@ td{
 #headerStyle{
   font-size: 18px;
   font-weight: bolder;
-  background-color: rgba(170, 170, 170, 0.3);
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }  
 
 
-tr:nth-child(even) {background: rgb(192, 212, 255)}
-tr:nth-child(even):hover{background: rgba(165, 182, 219, 0.651)}
-tr:nth-child(odd) {background: rgb(199, 187, 187)}
-tr:nth-child(odd):hover{background: rgba(161, 151, 151, 0.644)}
+tr:nth-child(even) {background: rgb(192, 212, 255) !important} 
+tr:nth-child(even):hover{background: rgba(165, 182, 219, 0.651)!important}
+tr:nth-child(odd) {background: rgb(199, 187, 187) !important}
+tr:nth-child(odd):hover{background: rgba(161, 151, 151, 0.644)!important}
 
 #singleRecipeRating{display:inline-block;}
 #ratTitle{display:inline-block;}
