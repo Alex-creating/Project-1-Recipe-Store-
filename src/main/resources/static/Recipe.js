@@ -62,26 +62,3 @@ function getIngredientDataBack(){
     console.log(ingre);
     return ingre;
 }
-
-
-// function getCategoryData(){
-//     var results = $('#category').map(function() { return  { "categoryName": $(this).val()} }).get();
-//     console.log(results);
-//     return results;
-// }
-// function getIngredientData(){
-//     let results = $('#ingredient').map(function() { return { "ingredientName": $(this).val()} }).get();
-//     console.log(results);
-//     return results;
-// }
-
-// function patchInCategory(recipe){
-//     let catStringed = JSON.stringify(getCategoryData());
-//     axios.patch('http://localhost:8080/attachCategory/' +recipe.recipeId, catStringed);
-    
-// }
-
-// function patchInIngredient(recipe){  
-//     let ingStringed = JSON.stringify(getIngredientData());
-//     axios.patch('http://localhost:8080/attachIngredient/' +recipe.recipeId, ingStringed);
-// }
