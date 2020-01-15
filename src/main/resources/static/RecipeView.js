@@ -215,9 +215,10 @@ function populateEditRecipe(recipe){
 
 function populateViewPage(recipe) {
     recipeName.innerText = recipe.recipeName;
-    recipeRating.innerText = recipe.rating;
-    recipeServing.innerText = recipe.servingAmount;
-    recipeLength.innerText = recipe.timeToMake;
+    recipeRating.innerHTML = starSystem(recipe);
+    if (recipe.servingAmount == 1){recipeServing.innerText = recipe.servingAmount + " person"}
+    else {recipeServing.innerText = recipe.servingAmount + " people"}
+    recipeLength.innerText = recipe.timeToMake + " minutes";
     recipeMethod.innerText = recipe.method;
     recipeIngredients.innerText = ingAsString(recipe);
     recipeCategories.innerText = catAsString(recipe);

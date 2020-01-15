@@ -19,6 +19,9 @@ textarea, .textarea-size {
   box-sizing: border-box;
   padding: 4px;
   border: 1px solid;
+  min-width: 350px;
+  margin-left: -75% !important;
+
 
   overflow: hidden;
   width: 50%;
@@ -101,18 +104,81 @@ ul {
   
   }
 
+  .boxed {
+    text-align: center;
+    letter-spacing: 22px;
+    font-size: 90px;
+} 
+.boxedView {
+  text-align: center;
+  letter-spacing: 19px;
+  font-size: 85px;
+} 
+
+.boxedView span{
+  background-color:#3d3d3d70;
+    border-radius: 25px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.boxed span{
+  background-color:#3d3d3d70;
+    border-radius: 25px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+
   .behind-text{
-    background-color: #3d3d3d;
+    background-color: #3d3d3d9f;
     text-align: left;
     vertical-align: middle;
-    padding: 21% 24%;
+    padding: 1% 10%;
     position: absolute;
-    margin-left: 25%;
-    opacity: 0.4;
-    z-index: -1;
+    /* margin-left: 25%; */
+    float: center;
+    /* z-index: -3; */
     border-radius: 25px;
+    margin-left: 33.5%;
 
   }
+
+  .behind-text-view {
+    background-color: #3d3d3d57;
+    text-align: left;
+    vertical-align: middle;
+    padding: 1%;
+    /* position: absolute; */
+    /* opacity: 0.6; */
+    z-index: -1;
+    border-radius: 25px;
+    margin-left: 10%;
+    float: left;
+    max-width: 40%;
+    min-width: 39%;
+  }
+
+  .behind-text-viewMethod{
+    background-color: #3d3d3d57;
+    text-align: left;
+    vertical-align: middle;
+    padding: 1% 5%;
+    /* position: absolute; */
+    /* opacity: 0.6; */
+    z-index: -1;
+    border-radius: 25px;
+    margin-right: 10%;
+    float: right;
+    max-width: 40%;
+    min-width: 39%;
+  }
+
+
 
 
 
@@ -185,13 +251,11 @@ ul {
 .submitButton{
     background-color: rgb(27, 199, 185);
     font-size:18px;
-    margin-left: 65%;
+    float: right;
 }
 
 
-.buttonEditDelete{
 
-}
   
   /* Change the link color to #111 (black) on hover */
   li a:hover {
@@ -248,21 +312,6 @@ ul {
      
   }
 
-.boxed {
-    text-align: center;
-    letter-spacing: 22px;
-    font-size: 90px;
-    
-} 
-
-.boxed span{
-  background-color:#3d3d3d70;
-    border-radius: 25px;
-    padding: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    text-align: center;
-}
 
 
 
@@ -278,8 +327,15 @@ ul {
     text-align: center;
 }
 
+.view-title{
+  font-size: 25px;
+  color:  white;
+  text-align: center;
+  font-weight: bold;
+}
+
 .viewRecipeFormat{
-  font-size: 18px;
+  font-size: 22px;
   color:  white;
   text-align: center;
 }
@@ -346,15 +402,6 @@ tr:nth-child(even):hover{background: rgba(165, 182, 219, 0.651)!important}
 tr:nth-child(odd) {background: rgb(199, 187, 187) !important}
 tr:nth-child(odd):hover{background: rgba(161, 151, 151, 0.644)!important}
 
-#singleRecipeRating{display:inline-block;}
-#ratTitle{display:inline-block;}
-
-#serveTitle{display:inline-block;}
-#singleRecipeServing{display:inline-block;}
-
-
-#deleteButton{float: right;}
-#editButton{float: right;}
 
 #editPage{
   text-align: center;
