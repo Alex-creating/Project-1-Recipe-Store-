@@ -209,7 +209,7 @@ function populateEditRecipe(recipe){
     currentIngredients.innerText = ingAsString(recipe);
     currentCategories.innerText = catAsString(recipe);
 
-    editSubmitButton.addEventListener('click', ()=>editRecipe(recipe));
+    editSubmitButton.addEventListener('click', ()=>checkEditDetails(recipe));
 }
 
 
