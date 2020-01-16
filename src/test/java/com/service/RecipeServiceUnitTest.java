@@ -19,6 +19,8 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bae.exceptions.InvalidEntryException;
+import com.bae.persistence.domain.Category;
+import com.bae.persistence.domain.Ingredients;
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repo.RecipeRepo;
 import com.bae.service.RecipeService;
@@ -32,12 +34,30 @@ public class RecipeServiceUnitTest {
 	@Mock
 	private RecipeRepo recRepo;
 	
-	private List<Recipe> recipeList;
+	@Mock
+	private RecipeService recServiceMock;
+	
+	
 	private Recipe testRecipe;
 	private Recipe testRecipeWithId;
+	
+	private Recipe testRecipeWithId2;
+	private Recipe testRecipeWithIngredients;
 	private Recipe testFailingRecipe;
 	
+	private Ingredients testIng;
+	private Ingredients testIngWithId;
+	
+	private Category testCat;
+	private Category testCatWithId;
+	
+	private List<Recipe> recipeList;
+	private List<Ingredients> ingList;
+	private List<Category> catList;
+	
 	final int id = 1;
+	final int id2 = 2;
+
 	
 	@Before
 	public void init() {
@@ -46,8 +66,24 @@ public class RecipeServiceUnitTest {
 		this.testRecipe = new Recipe ("Lasagna", "Cook", 5, 120, 3);
 		this.testRecipeWithId = new Recipe (testRecipe.getRecipeName(), testRecipe.getMethod(), testRecipe.getRating(), testRecipe.getTimeToMake(), testRecipe.getServingAmount());
 		this.testRecipeWithId.setRecipeId(id);	
+		this.testRecipeWithId2 = new Recipe (testRecipe.getRecipeName(), testRecipe.getMethod(), testRecipe.getRating(), testRecipe.getTimeToMake(), testRecipe.getServingAmount());
+		this.testRecipeWithId2.setRecipeId(id2);
 		
 		this.testFailingRecipe = new Recipe("Pizza Cake", "Cook", 2, 3, 4);
+		this.testRecipeWithIngredients = new Recipe (testRecipe.getRecipeName(), testRecipe.getMethod(), testRecipe.getRating(), testRecipe.getTimeToMake(), testRecipe.getServingAmount());
+		this.testRecipeWithIngredients.setRecipeId(id2);
+		
+		this.ingList = new ArrayList<>();
+		this.ingList.add(testIng);
+		this.testIng = new Ingredients ("Tomato");
+		this.testIngWithId = new Ingredients (testIng.getIngredientName());
+		this.testIngWithId.setIngredientId(id);
+		
+		this.catList = new ArrayList<>();
+		this.catList.add(testCat);
+		this.testCat = new Category ("Meat");
+		this.testCatWithId = new Category (testCat.getCategoryName());
+		this.testCatWithId.setCategoryId(id);
 
 	}
 	
@@ -64,7 +100,7 @@ public class RecipeServiceUnitTest {
 		this.recService.deleteRecipeById(1);
 		
 		verify(this.recRepo, times(1)).deleteById(1);
-//		verify(this.recRepo, times(1)).findById(id);
+//		verify(this.recRepo, times(2)).findById(id);
 	}
 	
 	@Test
@@ -107,11 +143,26 @@ public class RecipeServiceUnitTest {
 			this.recService.createRecipe(this.testFailingRecipe);	
 		});
 	}
+	
+	@Test 
+	public void addAndRemoveIngredients() {
+		when(this.recRepo.findById(this.id2)).thenReturn(Optional.of(this.testRecipeWithIngredients));
+		recServiceMock.addIngredientToRecipe(testRecipeWithIngredients.getRecipeId(), ingList);
+		recServiceMock.removePreviousIngredients(testRecipeWithIngredients.getRecipeId());
+		
+		this.ingList.add(testIng);
+		
+		assertEquals(testRecipeWithIngredients, testRecipeWithId2);
+		verify(this.recServiceMock, times(1)).addIngredientToRecipe(testRecipeWithIngredients.getRecipeId(), this.ingList);
+		verify(this.recServiceMock, times(1)).removePreviousIngredients(testRecipeWithIngredients.getRecipeId());
+	}
 		
 
 	
 	@Test
 	public void recipeNameTooLongTest() {
+		
+		
 		this.testFailingRecipe.setRecipeName("abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklim");
 		assertThrows(InvalidEntryException.class, () -> {
 			this.recService.createRecipe(this.testFailingRecipe);
