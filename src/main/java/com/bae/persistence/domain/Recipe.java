@@ -146,30 +146,30 @@ public class Recipe {
 		if (method == null) {
 			if (other.method != null)
 				return false;
-		} else if (!method.equals(other.method))
+		} 
+		else if (!method.equals(other.method))
 			return false;
 		if (rating != other.rating)
 			return false;
 		if (recipeHasCategories == null) {
 			if (other.recipeHasCategories != null)
 				return false;
-		} else if (!recipeHasCategories.equals(other.recipeHasCategories))
+		} 
+		else if (!recipeHasCategories.equals(other.recipeHasCategories))
 			return false;
 		if (recipeHasIngredients == null) {
 			if (other.recipeHasIngredients != null)
 				return false;
-		} else if (!recipeHasIngredients.equals(other.recipeHasIngredients))
+		} 
+		else if (!recipeHasIngredients.equals(other.recipeHasIngredients))
 			return false;
 		if (recipeId != other.recipeId)
 			return false;
 		if (recipeName == null) {
 			if (other.recipeName != null)
 				return false;
-		} else if (!recipeName.equals(other.recipeName))
-			return false;
-		if (servingAmount != other.servingAmount)
-			return false;
-		if (timeToMake != other.timeToMake)
+		} 
+		else if (!recipeName.equals(other.recipeName) || servingAmount != other.servingAmount || timeToMake != other.timeToMake)
 			return false;
 		return true;
 	}

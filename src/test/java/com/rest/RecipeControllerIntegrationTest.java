@@ -6,7 +6,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +25,8 @@ import com.bae.RecipeStoreApp;
 import com.bae.persistence.domain.Category;
 import com.bae.persistence.domain.Ingredients;
 import com.bae.persistence.domain.Recipe;
+import com.bae.persistence.repo.CategoryRepo;
+import com.bae.persistence.repo.IngredientsRepo;
 import com.bae.persistence.repo.RecipeRepo;
 import com.bae.service.RecipeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,9 +42,16 @@ public class RecipeControllerIntegrationTest {
 	@Autowired
 	private RecipeRepo recRepo;
 	
+	@Autowired
+	private IngredientsRepo ingRepo;
+	
+	@Autowired
+	private CategoryRepo catRepo;
+	
 	private ObjectMapper mapper = new ObjectMapper();
 	
 	private int id;
+
 	
 	private Recipe testRec;
 	
@@ -50,7 +61,9 @@ public class RecipeControllerIntegrationTest {
 	private RecipeService recService;
 	
 	private Ingredients ingredient;
+	private Ingredients ingredientWithId;
 	private Category category;
+	private Category categoryWithId;
 	
 	@Before 
 	public void init() {
@@ -59,6 +72,15 @@ public class RecipeControllerIntegrationTest {
 		this.testRec = new Recipe("Pizza", "cook", 5, 5, 5);
 		this.testRecWithId = this.recRepo.save(this.testRec);
 		this.id = this.testRecWithId.getRecipeId();	
+		
+		this.category = new Category("Meat");
+		this.categoryWithId = this.catRepo.save(this.category);
+
+		
+		this.ingredient = new Ingredients("Potato");
+		this.ingredientWithId = this.ingRepo.save(ingredient);
+
+		
 	}
 	
 	@Test
@@ -98,6 +120,43 @@ public class RecipeControllerIntegrationTest {
 				.andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
 		
 		assertEquals(this.mapper.writeValueAsString(updatedRecipe), result);
+	}
+	@Test
+	public void testPatchIngredients() throws Exception {
+		Recipe patchedRecipe = new Recipe("Pizza", "cook", 5, 5, 5);
+		Recipe testRecWithIngredients = new Recipe(patchedRecipe.getRecipeName(), patchedRecipe.getMethod(), patchedRecipe.getRating(), patchedRecipe.getTimeToMake(), patchedRecipe.getServingAmount());
+		testRecWithIngredients.setRecipeId(this.id);
+		
+		Set<Ingredients> ingredientToAdd = new HashSet<>();
+		ingredientToAdd.add(ingredientWithId);
+		
+		testRecWithIngredients.getIngredients().addAll(ingredientToAdd);
+		
+		String result = this.mock
+				.perform(request(HttpMethod.PATCH, "/attachIngredient/" + this.id).accept(MediaType.APPLICATION_JSON)
+						.contentType(MediaType.APPLICATION_JSON).content(this.mapper.writeValueAsString(ingredientToAdd)))
+				.andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+		
+		assertEquals(this.mapper.writeValueAsString(testRecWithIngredients), result);
+	}
+	
+	@Test
+	public void testPatchCategories() throws Exception {
+		Recipe patchedRecipe = new Recipe("Pizza", "cook", 5, 5, 5);
+		Recipe testRecWithCategories = new Recipe(patchedRecipe.getRecipeName(), patchedRecipe.getMethod(), patchedRecipe.getRating(), patchedRecipe.getTimeToMake(), patchedRecipe.getServingAmount());
+		testRecWithCategories.setRecipeId(this.id);
+		
+		Set<Category> categoryToAdd = new HashSet<>();
+		categoryToAdd.add(categoryWithId);
+		
+		testRecWithCategories.getCategories().addAll(categoryToAdd);
+		
+		String result = this.mock
+				.perform(request(HttpMethod.PATCH, "/attachCategory/" + this.id).accept(MediaType.APPLICATION_JSON)
+						.contentType(MediaType.APPLICATION_JSON).content(this.mapper.writeValueAsString(categoryToAdd)))
+				.andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+		
+		assertEquals(this.mapper.writeValueAsString(testRecWithCategories), result);
 	}
 	
 }

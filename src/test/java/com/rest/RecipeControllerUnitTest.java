@@ -117,13 +117,5 @@ public class RecipeControllerUnitTest {
 		verify(this.recService, times(1)).updateRecipe(newRecipe, this.id);
 	}
 	
-//	@Test
-//	public void addIngredientsTest() {
-//		this.testRecWithId.getIngredients().addAll(ingList);
-//		when(this.recService.addIngredientToRecipe(this.id, this.ingList)).thenReturn(this.testRecWithId);
-//		
-//		assertEquals(this.testRecWithId, this.controller.addIngredientToRecipe(this.id, this.ingList));
-//		verify(this.recService, times(1)).addIngredientToRecipe(this.id, this.ingList);
-//	}
 
 }
