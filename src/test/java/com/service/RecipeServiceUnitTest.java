@@ -40,9 +40,10 @@ public class RecipeServiceUnitTest {
 	
 	private Recipe testRecipe;
 	private Recipe testRecipeWithId;
-	
 	private Recipe testRecipeWithId2;
+	
 	private Recipe testRecipeWithIngredients;
+	private Recipe testRecipeWithCategories;
 	private Recipe testFailingRecipe;
 	
 	private Ingredients testIng;
@@ -72,6 +73,8 @@ public class RecipeServiceUnitTest {
 		this.testFailingRecipe = new Recipe("Pizza Cake", "Cook", 2, 3, 4);
 		this.testRecipeWithIngredients = new Recipe (testRecipe.getRecipeName(), testRecipe.getMethod(), testRecipe.getRating(), testRecipe.getTimeToMake(), testRecipe.getServingAmount());
 		this.testRecipeWithIngredients.setRecipeId(id2);
+		this.testRecipeWithCategories = new Recipe (testRecipe.getRecipeName(), testRecipe.getMethod(), testRecipe.getRating(), testRecipe.getTimeToMake(), testRecipe.getServingAmount());
+		this.testRecipeWithCategories.setRecipeId(id2);
 		
 		this.ingList = new ArrayList<>();
 		this.ingList.add(testIng);
@@ -155,6 +158,19 @@ public class RecipeServiceUnitTest {
 		assertEquals(testRecipeWithIngredients, testRecipeWithId2);
 		verify(this.recServiceMock, times(1)).addIngredientToRecipe(testRecipeWithIngredients.getRecipeId(), this.ingList);
 		verify(this.recServiceMock, times(1)).removePreviousIngredients(testRecipeWithIngredients.getRecipeId());
+	}
+	
+	@Test 
+	public void addAndRemoveCategories() {
+		when(this.recRepo.findById(this.id2)).thenReturn(Optional.of(this.testRecipeWithCategories));
+		recServiceMock.addCategoriesToRecipe(testRecipeWithCategories.getRecipeId(), catList);
+		recServiceMock.removePreviousCategories(testRecipeWithCategories.getRecipeId());
+		
+		this.catList.add(testCat);
+		
+		assertEquals(testRecipeWithCategories, testRecipeWithId2);
+		verify(this.recServiceMock, times(1)).addCategoriesToRecipe(testRecipeWithCategories.getRecipeId(), this.catList);
+		verify(this.recServiceMock, times(1)).removePreviousCategories(testRecipeWithCategories.getRecipeId());
 	}
 		
 

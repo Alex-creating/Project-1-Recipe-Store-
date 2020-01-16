@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +22,8 @@ import com.bae.RecipeStoreApp;
 import com.bae.persistence.domain.Category;
 import com.bae.persistence.domain.Ingredients;
 import com.bae.persistence.domain.Recipe;
+import com.bae.persistence.repo.CategoryRepo;
+import com.bae.persistence.repo.IngredientsRepo;
 import com.bae.persistence.repo.RecipeRepo;
 import com.bae.service.RecipeService;
 
@@ -34,19 +37,41 @@ public class RecipeServiceIntegrationTest {
 	@Autowired
 	private RecipeRepo recRepo;
 	
+	@Autowired
+	private IngredientsRepo ingRepo;
+	
+	@Autowired
+	private CategoryRepo catRepo;
+	
 	private Recipe testRecipe;
 	private Recipe testRecipeWithId;
 	private Recipe testRecipeWithCategories;
 	private Recipe testRecipeWithIngredients;
 	
+	private Ingredients testIng;
+	private Ingredients testIngWithId;
+	
+	private Category testCat;
+	private Category testCatWithId;
+	
 	@Before
 	public void init() {
 		this.testRecipe = new Recipe("Lasagna", "Cook", 5, 120, 3);
+		this.testIng = new Ingredients("Pasta");
+		this.testCat = new Category("Meat");
 		
 		this.recRepo.deleteAll();
+		this.ingRepo.deleteAll();
+		this.catRepo.deleteAll();
+		
 		this.testRecipeWithId = this.recRepo.save(this.testRecipe);
+		this.testIngWithId = this.ingRepo.save(this.testIng);
+		this.testCatWithId = this.catRepo.save(this.testCat);
+		
 		this.testRecipeWithCategories = this.recRepo.save(this.testRecipe);
 		this.testRecipeWithIngredients = this.recRepo.save(this.testRecipe);
+		
+
 	}
 
 	@Test
@@ -79,26 +104,25 @@ public class RecipeServiceIntegrationTest {
 	
 }
 	
-//	@Test
-//	public void testUpdateRecipeWithCategories() {
-//		Collection<Category> categoryToAdd = new HashSet<>();
-//		categoryToAdd.add(new Category("Meat"));
-//		categoryToAdd.add(new Category("Tasty"));
-//		
-//		Recipe recipeWithCat = this.recService.addCategoriesToRecipe(testRecipeWithCategories.getRecipeId(), categoryToAdd);
-//		
-//		this.recService.updateRecipeWithCategories(this.testRecipeWithId.getRecipeId(), categoryToAdd);
-//		assertEquals((this.testRecipeWithId), recipeWithCat);
-//	}
-//	
-//	@Test
-//	public void testUpdateRecipeWithIngredients() {
-//		Collection<Ingredients> ingredientToAdd = new HashSet<>();
-//		ingredientToAdd.add(new Ingredients("Pasta"));
-//		ingredientToAdd.add(new Ingredients("Tomato"));
-//		
-//		Recipe recipeWithIng = this.recService.addIngredientToRecipe(testRecipeWithIngredients.getRecipeId(), ingredientToAdd);
-//		this.recService.updateRecipeWithIngredients(this.testRecipeWithId.getRecipeId(), ingredientToAdd);
-//
-//	}
+	@Test
+	public void testUpdateRecipeWithCategories() {
+		
+		Set<Category> categoryToAdd = new HashSet<>();
+		categoryToAdd.add(testCatWithId);
+		
+		this.testRecipeWithCategories.getCategories().addAll(categoryToAdd);
+		
+		assertEquals(testRecipeWithCategories, this.recService.updateRecipeWithCategories(this.testRecipeWithId.getRecipeId(), categoryToAdd));
+	}
+	
+	@Test
+	public void testUpdateRecipeWithIngredients() {
+		
+		Set<Ingredients> ingredientToAdd = new HashSet<>();
+		ingredientToAdd.add(testIngWithId);
+		
+		this.testRecipeWithIngredients.getIngredients().addAll((ingredientToAdd));
+		
+		assertEquals(testRecipeWithIngredients, this.recService.updateRecipeWithIngredients(this.testRecipeWithId.getRecipeId(), ingredientToAdd));
+	}
 }
