@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,25 +63,33 @@ public class RecipeControllerIntegrationTest {
 	
 	private Ingredients ingredient;
 	private Ingredients ingredientWithId;
-	private Category category;
-	private Category categoryWithId;
+	private Category testCategory;
+	private Category testCategoryWithId;
 	
 	@Before 
 	public void init() {
 		this.recRepo.deleteAll();
+		this.ingRepo.deleteAll();
+		this.catRepo.deleteAll();
 		
 		this.testRec = new Recipe("Pizza", "cook", 5, 5, 5);
 		this.testRecWithId = this.recRepo.save(this.testRec);
 		this.id = this.testRecWithId.getRecipeId();	
 		
-		this.category = new Category("Meat");
-		this.categoryWithId = this.catRepo.save(this.category);
+		this.testCategory = new Category("Fast");
+		this.testCategoryWithId = this.catRepo.save(this.testCategory);
 
 		
 		this.ingredient = new Ingredients("Potato");
 		this.ingredientWithId = this.ingRepo.save(ingredient);
-
 		
+	}
+	
+	@After
+	public void after() {
+		this.recRepo.deleteAll();
+		this.ingRepo.deleteAll();
+		this.catRepo.deleteAll();
 	}
 	
 	@Test
@@ -147,7 +156,7 @@ public class RecipeControllerIntegrationTest {
 		testRecWithCategories.setRecipeId(this.id);
 		
 		Set<Category> categoryToAdd = new HashSet<>();
-		categoryToAdd.add(categoryWithId);
+		categoryToAdd.add(testCategoryWithId);
 		
 		testRecWithCategories.getCategories().addAll(categoryToAdd);
 		
