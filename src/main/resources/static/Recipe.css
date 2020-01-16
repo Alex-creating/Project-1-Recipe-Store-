@@ -21,12 +21,16 @@ textarea, .textarea-size {
   border: 1px solid;
   min-width: 350px;
   margin-left: -75% !important;
-
-
   overflow: hidden;
   width: 50%;
   
 }
+
+#methodEdit{
+  margin-left: -18% !important;
+}
+
+
 
 #methodInput{
   padding-left: 25%;
@@ -323,8 +327,13 @@ ul {
      
   }
 
+.select2-search__field{
+  width: 8.75em !important;
+}
 
-
+#editSubmitButton{
+  float: right; 
+}
 
 .row{
     padding: 2px;

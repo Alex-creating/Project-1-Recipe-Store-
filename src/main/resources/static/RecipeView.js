@@ -232,7 +232,7 @@ function editRecipe(recipe){
         rating :turnToInteger(document.getElementById('editRecipeRating').value),
         servingAmount :turnToInteger(document.getElementById('editRecipeServing').value),
         timeToMake : turnToInteger(document.getElementById('editRecipeLength').value),
-        method : document.getElementById('editRecipeMethod').value
+        method : document.getElementById('methodEdit').value
     }
     JSON.stringify(edittedRecipe);
 
