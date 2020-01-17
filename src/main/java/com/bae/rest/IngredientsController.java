@@ -42,12 +42,12 @@ public class IngredientsController {
 	public Ingredients getIngredient(@PathVariable int id) {
 		return this.ingService.findIngredientById(id);
 }
-	@GetMapping("getAllIng")
+	@GetMapping("/getAllIng")
 	public List<Ingredients> getAllIngredients(){
 		return this.ingService.getAllIngredients();
 	}
 	
-	@PutMapping("updateIngredient")
+	@PutMapping("/updateIngredient")
 	public Ingredients updateIngredient(@PathParam("id") int ingredientId, @RequestBody Ingredients ingredientToUpdate) {
 		return this.ingService.updateIngredients(ingredientToUpdate, ingredientId);
 	}

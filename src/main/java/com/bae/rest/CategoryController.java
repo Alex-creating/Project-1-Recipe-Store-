@@ -42,12 +42,12 @@ public class CategoryController {
 	public Category getCategory(@PathVariable int id) {
 		return this.catService.findCategoryById(id);
 }
-	@GetMapping("getAllCat")
+	@GetMapping("/getAllCat")
 	public List<Category> getAllCategories(){
 		return this.catService.getAllCategories();
 	}
 	
-	@PutMapping("updateCategory")
+	@PutMapping("/updateCategory")
 	public Category updateCategory(@PathParam("id") int categoryId, @RequestBody Category categoryToUpdate) {
 		return this.catService.updateCategory(categoryToUpdate, categoryId);
 	}

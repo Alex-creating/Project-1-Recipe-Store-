@@ -47,12 +47,12 @@ public class RecipeController {
 	public Recipe getRecipe(@PathVariable int id) {
 		return this.recService.findRecipeById(id);
 }
-	@GetMapping("getAllRec")
+	@GetMapping("/getAllRec")
 	public List<Recipe> getAllRecipes(){
 		return this.recService.getAllRecipes();
 	}
 	
-	@PutMapping("updateRecipe")
+	@PutMapping("/updateRecipe")
 	public Recipe updateRecipe(@PathParam("id") int recipeId, @RequestBody Recipe recipeToUpdate) {
 	
 		return this.recService.updateRecipe(recipeToUpdate, recipeId);
