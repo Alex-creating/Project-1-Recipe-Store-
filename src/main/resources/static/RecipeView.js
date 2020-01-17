@@ -243,7 +243,7 @@ function editRecipe(recipe){
         .then(function(){
              axios.patch('/RecipeStore/attachIngredient/' +recipe.recipeId, getIngredientData())
              .then(function(){
-                  window.location = "/RecipeViewAllPage.html";
+                  window.location = "/RecipeStore/RecipeViewAllPage.html";
              });
         });
     })
@@ -299,7 +299,7 @@ function deleteRecipe(recipe){
         axios.delete("/RecipeStore/deleteRecipe/" + recipe.recipeId)
         .then(function() {
             alert('\t Successfully Deleted!');
-            window.location = "/RecipeViewAllPage.html";
+            window.location = "/RecipeStore/RecipeViewAllPage.html";
         })
         .catch(function(error){
             console.log(error);
@@ -309,5 +309,5 @@ function deleteRecipe(recipe){
 }
 
 function changeToHomePage(){
-    window.location = "/index.html";
+    window.location = "/RecipeStore/index.html";
 }

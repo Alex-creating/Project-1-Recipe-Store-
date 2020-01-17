@@ -41,7 +41,7 @@ function addRecipe(){
     axios.post('/RecipeStore/createRecipe', newRecipe)
     .then(function(response) {
         window.alert("You have added " + document.getElementById('recipeName').value + " to your store!");
-        window.location = "/RecipeViewAllPage.html";
+        window.location = "/RecipeStore/RecipeViewAllPage.html";
     })
     .catch(function (error) {
         console.log(error);
@@ -49,7 +49,7 @@ function addRecipe(){
 }
 
 function changeToHomePage(){
-    window.location = "/index.html";
+    window.location = "/RecipeStore/index.html";
 }
 
 function getCategoryDataBack(){
