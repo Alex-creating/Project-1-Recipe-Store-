@@ -34,7 +34,7 @@ getRecipeAndCreateTable();
 
 
 function getRecipeAndCreateTable() {
-    axios.get("http://localhost:8080/getAllRec")
+    axios.get("/RecipeStore/getAllRec")
     .then(function(response) {
         console.log(response);
         addRecipeToTable(response.data);
@@ -185,7 +185,7 @@ function starSystem(recipe){
 
 function getRecipeFromID(id){
     
-    axios.get("http://localhost:8080/getRec/" + id)
+    axios.get("/RecipeStore/getRec/" + id)
     .then(function(response) {
         populateViewPage(response.data);
         $("#TablePage").toggle();
@@ -237,11 +237,11 @@ function editRecipe(recipe){
     JSON.stringify(edittedRecipe);
 
 
-    axios.put('http://localhost:8080/updateRecipe/?recipeId=' + recipe.recipeId, edittedRecipe)
+    axios.put('/RecipeStore/updateRecipe/?recipeId=' + recipe.recipeId, edittedRecipe)
     .then(function(){ 
-        axios.patch('http://localhost:8080/attachCategory/' +recipe.recipeId, getCategoryData())
+        axios.patch('/RecipeStore/attachCategory/' +recipe.recipeId, getCategoryData())
         .then(function(){
-             axios.patch('http://localhost:8080/attachIngredient/' +recipe.recipeId, getIngredientData())
+             axios.patch('/RecipeStore/attachIngredient/' +recipe.recipeId, getIngredientData())
              .then(function(){
                   window.location = "/RecipeViewAllPage.html";
              });
@@ -277,7 +277,7 @@ function getIngredientData(){
 
 function getAllRecipes(){
 
-    axios.get('http://localhost:8080/getAllRec')
+    axios.get("/RecipeStore/getAllRec")
     
         .then((response) => {
             console.log(response);
@@ -296,7 +296,7 @@ function changeToRecipePage(){
 
 function deleteRecipe(recipe){
     if (confirm("Are you sure you want to delete " + recipe.recipeName + " from your store?")){
-        axios.delete("http://localhost:8080/deleteRecipe/" + recipe.recipeId)
+        axios.delete("/RecipeStore/deleteRecipe/" + recipe.recipeId)
         .then(function() {
             alert('\t Successfully Deleted!');
             window.location = "/RecipeViewAllPage.html";
