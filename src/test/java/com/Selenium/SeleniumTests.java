@@ -23,34 +23,34 @@ import com.bae.RecipeStoreApp;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = RecipeStoreApp.class)
 public class SeleniumTests {
 	
-	@LocalServerPort
-	private int port;
-	private WebDriver driver;
-	
-	@Before
-	public void setup() {
-		System.setProperty("webdriver.chrome.driver", "chromedriver");
-		ChromeOptions options = new ChromeOptions();
-		options.setHeadless(true);
-		this.driver = new ChromeDriver(options);
-		this.driver.manage().window().maximize();
-		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	}
-	
-	@After
-	public void tearDown() {
-		this.driver.close();
-	}
-	
-	@Test
-	public void testAdd() throws InterruptedException {
-		this.driver.get("localhost:" + port + "/RecipeStore/index.html");
-		
-		this.driver.findElement(By.id("recipeName")).sendKeys("Chicken Pie");
-		this.driver.findElement(By.id("serving")).sendKeys("5");
-		this.driver.findElement(By.id("howLong")).sendKeys("120");
-		this.driver.findElement(By.id("mainSubmit")).click();
-		assertEquals("Chicken Pie", this.driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/table/tbody/tr[1]/td[1]")).getText());   
-	}
+//	@LocalServerPort
+//	private int port;
+//	private WebDriver driver;
+//	
+//	@Before
+//	public void setup() {
+//		System.setProperty("webdriver.chrome.driver", "chromedriver");
+//		ChromeOptions options = new ChromeOptions();
+//		options.setHeadless(true);
+//		this.driver = new ChromeDriver(options);
+//		this.driver.manage().window().maximize();
+//		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//	}
+//	
+//	@After
+//	public void tearDown() {
+//		this.driver.close();
+//	}
+//	
+//	@Test
+//	public void testAdd() throws InterruptedException {
+//		this.driver.get("localhost:" + port + "/RecipeStore/index.html");
+//		
+//		this.driver.findElement(By.id("recipeName")).sendKeys("Chicken Pie");
+//		this.driver.findElement(By.id("serving")).sendKeys("5");
+//		this.driver.findElement(By.id("howLong")).sendKeys("120");
+//		this.driver.findElement(By.id("mainSubmit")).click();
+//		assertEquals("Chicken Pie", this.driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/table/tbody/tr[1]/td[1]")).getText());   
+//	}
 
 }
