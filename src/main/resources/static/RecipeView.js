@@ -204,7 +204,7 @@ function populateEditRecipe(recipe){
     document.getElementById("editRecipeRating").value = recipe.rating;
     document.getElementById("editRecipeServing").value = recipe.servingAmount;
     document.getElementById("editRecipeLength").value = recipe.timeToMake;
-    document.getElementById("editRecipeMethod").value = recipe.method;
+    document.getElementById("methodEdit").value = recipe.method;
 
     currentIngredients.innerText = ingAsString(recipe);
     currentCategories.innerText = catAsString(recipe);
