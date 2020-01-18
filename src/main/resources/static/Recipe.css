@@ -7,13 +7,11 @@ body{
 
 .textarea-container {
   position: relative;
-  /* you should change this*/
   width: 50%;
 }
 
 textarea, .textarea-size {
   min-height: 25px;
-  /* need to manually set font and font size */
   font-family: sans-serif;
   font-size: 10px;
   box-sizing: border-box;
@@ -40,33 +38,12 @@ textarea {
   height: 150%;
   position: absolute;
   resize:none;
-
-  /*
-  "pre" or "preline" or "normal" fixes Chrome issue where
-    whitespace at end of lines does not trigger a line break.
-  However, it causes the text to exhibit the behavior seen with
-    "pre" that is described below.
-   */
   white-space: normal;
 }
 
 .textarea-size {
   visibility: hidden;
-
-  /*
-  Pre-wrap: preserve spacing and newlines, but wrap text.
-  Pre: preserve spacing and newlines but don't wrap text.
-
-  "pre" does not wrap well on Firefox, even with word-wrap:break-word.
-  "pre" on Chrome works with word-wrap, but exhibits different behavior:
-  Instead of entire words being moved to the next line for wrapping,
-  the browser will cut words in the middle for wrapping.
-  "pre-line" has Firefox issues
-  */
   white-space: pre-wrap;
-  /* Required for wrapping lines in Webkit,
-    but not necessary in Firefox if you have white-space wrapping
-    (pre-wrap, normal, pre-line) already set */
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -76,8 +53,6 @@ textarea {
     font-size: 26px;
     text-align: center;
     font-weight: bold;
-   
-    
 }
 
 .card-title{
@@ -88,6 +63,7 @@ textarea {
 .inputing:hover{
     background-color: rgb(194, 255, 250);
 }
+
 .inputing{
     text-align: center;
     border-radius: 5px;
@@ -97,6 +73,7 @@ textarea {
 #method:hover{
   background-color: rgb(194, 255, 250);
 }
+
 #Rating:hover{
   background-color: rgb(194, 255, 250);
 }
@@ -114,6 +91,7 @@ ul {
     letter-spacing: 22px;
     font-size: 90px;
 } 
+
 .boxedView {
   text-align: center;
   letter-spacing: 19px;
@@ -145,9 +123,7 @@ ul {
     vertical-align: middle;
     padding: 1% 10%;
     position: absolute;
-    /* margin-left: 25%; */
     float: center;
-    /* z-index: -3; */
     border-radius: 25px;
     margin-left: 30.5%;
 
@@ -158,8 +134,6 @@ ul {
     text-align: left;
     vertical-align: middle;
     padding: 1%;
-    /* position: absolute; */
-    /* opacity: 0.6; */
     z-index: -1;
     border-radius: 25px;
     margin-left: 10%;
@@ -173,8 +147,6 @@ ul {
     text-align: center;
     vertical-align: middle;
     padding: 1%;
-    /* position: absolute; */
-    /* opacity: 0.6; */
     z-index: -1;
     border-radius: 25px;
     margin-left: 31%;
@@ -188,8 +160,6 @@ ul {
     text-align: left;
     vertical-align: middle;
     padding: 1% 5%;
-    /* position: absolute; */
-    /* opacity: 0.6; */
     z-index: -1;
     border-radius: 25px;
     margin-right: 10%;
@@ -233,7 +203,6 @@ ul {
   li {
     float: left;
     font-size: 20px;
-
   }
   
   li a {
@@ -242,8 +211,6 @@ ul {
     text-align: center;
     padding: 16px 26px;
     text-decoration: none;
-  
-    
   }
 
 .mainRecText{
@@ -270,10 +237,6 @@ ul {
     float: right;
 }
 
-
-
-  
-  /* Change the link color to #111 (black) on hover */
   li a:hover {
     background-color: #111;
     color:  white;
@@ -285,7 +248,6 @@ ul {
     background-color: #333;
   }
   
-  /* Style the links inside the navigation bar */
   .topnav a {
     float: left;
     display: block;
@@ -295,9 +257,6 @@ ul {
     font-size: 34px;
   }
 
-
-  
-  /* Style the search box inside the navigation bar */
   .topnav input[type=text] {
     float: right;
     padding: 5px;
@@ -308,7 +267,6 @@ ul {
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
   @media screen and (max-width: 600px) {
     .topnav a, .topnav input[type=text] {
       float: none;
@@ -371,7 +329,6 @@ select{
 
 table {
   border-collapse: collapse;
-  /* border: 1px solid black; */
   width: 95%;
   text-align: center;
   color: black;
