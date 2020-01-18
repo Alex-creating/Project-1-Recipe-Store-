@@ -11,9 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver.Window;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,7 +37,7 @@ public class SeleniumTests {
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", "chromedriver");
 		ChromeOptions options = new ChromeOptions();
-//		options.setHeadless(true);
+		options.setHeadless(true);
 		this.driver = new ChromeDriver(options);
 		this.driver.manage().window().setSize(new Dimension(1600, 700));
 		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
