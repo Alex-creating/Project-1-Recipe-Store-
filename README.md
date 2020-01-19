@@ -50,10 +50,12 @@ The above diagram shows the flow of the program, without specific classes. The d
 
 Testing of this program included using JUnit, Selenium and Mockito, along with SonarQube to help idenfity and remove code smells to aid refactoring.
 
+![junit](https://i.imgur.com/Q9ym4cZ.png)
+
 <a name="surefire"></a>
 ### Surefire Report
 
-[Surefire Report](http://https://github.com/Alex-creating/Project-1-Recipe-Store-/tree/devBranch/surefire-report.html)
+[Surefire Report](https://github.com/Alex-creating/Project-1-Recipe-Store-/blob/devBranch/surefire-report.html)
 
 Test coverage from JUnit testing on Eclipse is 85%, SonarQube line coverage is at 82%, with 0 bugs, vunerabilities or code smells.
 
