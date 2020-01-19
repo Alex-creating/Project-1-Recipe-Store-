@@ -5,27 +5,27 @@ This was my personal solo project assigned by QA Consulting due on the 20th of J
 ## Index
 
 [Requirements](#requirements)
-    * [Solution](#solution)
+
+[Solution](#solution)
 
 [Architecture](#architecture)
 
-* Testing
-    * Surefire Report
+[Testing](#testing)
+* [Surefire Report](#surefire)
 
-* Deployment
-    * Technology used
+[Deployment](#deployment)
+* [Technology used](#technology)
     
-* Front End Design
-    * Initial Wireframe Design
-    * Final Design
+[Front End Design](#frontend)
+* [Initial Wireframe Design](#wireframe)
+* [Final Design](#final)
 
-* Future Possibilities
-    * Initial Design Changes
+[Future Possibilities](#future)
 
-* Authors
+[Authors](#author)
 
 <a name="requirements"></a>
-## The Requirements
+## Requirements
 
 To create an OOP-based application with utilisation of supporting tools, methodologies and technologies that encapsulate all core modules covered during training. This includes a Trello board, at least 2 tables in a relational database, a functional backend, an integrated RESTful API and a CI/CD solution to deploy in a non-local environment. This must be controlled via source control and tested to at least 80% coverage.
 
@@ -63,7 +63,7 @@ Test coverage from JUnit testing on Eclipse is 85%, SonarQube line coverage is a
 
 I used Jenkins to build, test and deploy my project. Upon every push to my Git repository Jenkins would automatically begin this process and update my project. The application has been deployed using an Amazon Web Service (AWS) virtual machine (VM).
 
-<img align="left" width ="300" height = "300" src="http://https://github.com/Alex-creating/Project-1-Recipe-Store-/tree/devBranch/Documents/CIPipeline.png">
+<img align="left" width ="300" height = "300" src="https://imgur.com/a/VvfwC3Q">
 
 <a name="technology"></a>
 ### Technology used
