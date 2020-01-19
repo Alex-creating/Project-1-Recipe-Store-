@@ -38,11 +38,10 @@ The recipe has a many to many relationship with both ingredients and categories,
 <a name="architecture"></a>
 ## Architecture
 
-<img align="left" width ="300" height = "300" src="http://https://github.com/Alex-creating/Project-1-Recipe-Store-/tree/devBranch/Documents/database.png">
+![database](https://i.imgur.com/MT8q8AZ.png)
 
 The diagram above shows both my initial and final structure for the tables in my database. I managed to stick to my initial design and keep all aspects of the recipes, ingredients and categories. The recipe table is the main focus of this project so the ingredients and categories were designed to fit around the requirements of the recipe.
-
-<img align="left" width ="300" height = "300" src="http://https://github.com/Alex-creating/Project-1-Recipe-Store-/tree/devBranch/Documents/Structure.png">
+![structure](https://i.imgur.com/ukyCdpL.png)
 
 The above diagram shows the flow of the program, without specific classes. The database used was a H2 database, which was suitable due to its speed of starting up and shutting down. The RESTful API was coded with Java using the Eclipse IDE along with Spring Tool Suite 4. The front end contained HTML, CSS and JavaScript and was coded using Visual Studio Code.
 
@@ -54,7 +53,7 @@ Testing of this program included using JUnit, Selenium and Mockito, along with S
 <a name="surefire"></a>
 ### Surefire Report
 
-[Surefire Report](http://https://github.com/Alex-creating/Project-1-Recipe-Store-/tree/devBranch/Documents/surefire-report.html)
+[Surefire Report](http://https://github.com/Alex-creating/Project-1-Recipe-Store-/tree/devBranch/surefire-report.html)
 
 Test coverage from JUnit testing on Eclipse is 85%, SonarQube line coverage is at 82%, with 0 bugs, vunerabilities or code smells.
 
@@ -87,14 +86,14 @@ Amazon Web Service - Live Environment
 
 Below shows the initial design of the front page.
 
-<img align="left" width ="700" height = "300" src="http://https://github.com/Alex-creating/Project-1-Recipe-Store-/tree/devBranch/Documents/Wireframe.png">
+![initial](https://i.imgur.com/fHfAZg3.png)
 
 <a name="final"></a>
 ### FInal Design
 
 Below shows the final result of the front page.
 
-<img align="left" width ="700" height = "300" src="http://https://github.com/Alex-creating/Project-1-Recipe-Store-/tree/devBranch/Documents/FrontPage.png">
+![final](https://i.imgur.com/dOJgQLq.jpg)
 
 <a name="future"></a>
 ## Future Possibilities
