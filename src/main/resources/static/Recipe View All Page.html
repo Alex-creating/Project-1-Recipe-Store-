@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="Recipe.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+</head>
+
+
+<body>
+    
+    
+    <ul class="banner">
+        <li><a href="index.html">Add a Recipe</a></li>
+        <li><a href="RecipeViewAllPage.html">View All Recipes</a></li>
+        <li><a href="EditRecipe.html">Edit Your Recipes</a></li>
+    </ul>
+    
+    
+    <br>
+    <br>
+    
+    <div class="title"> All Recipes </div>
+    
+    <br>
+    <table id="allRecipesTableHead">
+        <div id="allRecipeTable">
+            <thead">
+                <tr>
+                    <th>Recipe</th>
+                    <th>Ingredients</th>
+                    <th>Rating</th>
+                    <th>Serves</th>
+                    <th>How Long To Make</th>
+                    <th>Categories</th>
+                    <th>Method</th>
+                </tr>
+            </thead>
+            
+            <tbody id="allRecipesTableBody"></tbody>
+        </div>
+    </table>
+
+
+
+    <script src="./RecipeView.js"></script>
+</body>
+
+</html>
