@@ -63,7 +63,8 @@ Test coverage from JUnit testing on Eclipse is 85%, SonarQube line coverage is a
 
 I used Jenkins to build, test and deploy my project. Upon every push to my Git repository Jenkins would automatically begin this process and update my project. The application has been deployed using an Amazon Web Service (AWS) virtual machine (VM).
 
-<img align="left" width ="300" height = "300" src="https://imgur.com/a/VvfwC3Q">
+
+![CI](https://i.imgur.com/dANrjMY.png)
 
 <a name="technology"></a>
 ### Technology used
