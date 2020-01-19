@@ -27,7 +27,6 @@ textarea, .textarea-size {
 #methodEdit{
   margin-left: auto !important;
   margin-right: auto !important;
-
 }
 
 
@@ -153,7 +152,7 @@ ul {
     border-radius: 25px;
     margin-left: 31%;
 
-    max-width: 31%;
+    max-width: 35%;
     min-width: 31%;
   }
 
