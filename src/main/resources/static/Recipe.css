@@ -25,7 +25,9 @@ textarea, .textarea-size {
 }
 
 #methodEdit{
-  margin-left: -18% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+
 }
 
 
