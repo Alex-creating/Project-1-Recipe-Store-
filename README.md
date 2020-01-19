@@ -55,7 +55,7 @@ Testing of this program included using JUnit, Selenium and Mockito, along with S
 <a name="surefire"></a>
 ### Surefire Report
 
-[Surefire Report](https://github.com/Alex-creating/Project-1-Recipe-Store-/blob/devBranch/surefire-report.html)
+[Surefire Report](https://github.com/Alex-creating/Project-1-Recipe-Store-/blob/devBranch/surefire-report.pdf)
 
 Test coverage from JUnit testing on Eclipse is 85%, SonarQube line coverage is at 82%, with 0 bugs, vunerabilities or code smells.
 
