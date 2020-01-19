@@ -77,7 +77,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>15.51</td></tr></table><br />
+<td>25.201</td></tr></table><br />
 <p>Note: failures are anticipated and checked for with assertions while errors are unanticipated.</p><br /></section><section>
 <h2><a name="Package_List"></a>Package List</h2><a name="Package_List"></a>
 <p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><br />
@@ -97,7 +97,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.022</td></tr>
+<td>0.011</td></tr>
 <tr class="a">
 <td><a href="#com.rest">com.rest</a></td>
 <td>29</td>
@@ -105,7 +105,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>1.592</td></tr>
+<td>1.569</td></tr>
 <tr class="b">
 <td><a href="#com.Selenium">com.Selenium</a></td>
 <td>2</td>
@@ -113,7 +113,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>6.965</td></tr>
+<td>17.056</td></tr>
 <tr class="a">
 <td><a href="#com.service">com.service</a></td>
 <td>52</td>
@@ -121,7 +121,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>6.931</td></tr></table><br />
+<td>6.565</td></tr></table><br />
 <p>Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.</p><section>
 <h3><a name="com.persistence"></a>com.persistence</h3><a name="com.persistence"></a>
 <table border="1" class="bodyTable">
@@ -142,7 +142,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.007</td></tr>
+<td>0.008</td></tr>
 <tr class="a">
 <td><a href="#com.persistence.RecipeRepoTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.persistence.RecipeRepoTest">RecipeRepoTest</a></td>
@@ -151,7 +151,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.006</td></tr>
+<td>0</td></tr>
 <tr class="b">
 <td><a href="#com.persistence.CategoryRepoTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.persistence.CategoryRepoTest">CategoryRepoTest</a></td>
@@ -160,7 +160,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.004</td></tr>
+<td>0</td></tr>
 <tr class="a">
 <td><a href="#com.persistence.CategoryUnitTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.persistence.CategoryUnitTest">CategoryUnitTest</a></td>
@@ -169,7 +169,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.004</td></tr>
+<td>0.002</td></tr>
 <tr class="b">
 <td><a href="#com.persistence.IngredientsUnitTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.persistence.IngredientsUnitTest">IngredientsUnitTest</a></td>
@@ -207,7 +207,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>1.388</td></tr>
+<td>1.381</td></tr>
 <tr class="a">
 <td><a href="#com.rest.IngredientControllerUnitTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.rest.IngredientControllerUnitTest">IngredientControllerUnitTest</a></td>
@@ -216,7 +216,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.041</td></tr>
+<td>0.035</td></tr>
 <tr class="b">
 <td><a href="#com.rest.CategoryControllerUnitTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.rest.CategoryControllerUnitTest">CategoryControllerUnitTest</a></td>
@@ -234,7 +234,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.061</td></tr>
+<td>0.053</td></tr>
 <tr class="b">
 <td><a href="#com.rest.RecipeControllerUnitTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.rest.RecipeControllerUnitTest">RecipeControllerUnitTest</a></td>
@@ -243,7 +243,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.014</td></tr>
+<td>0.005</td></tr>
 <tr class="a">
 <td><a href="#com.rest.IngredientControllerIntegrationTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.rest.IngredientControllerIntegrationTest">IngredientControllerIntegrationTest</a></td>
@@ -252,7 +252,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.051</td></tr></table></section><section>
+<td>0.058</td></tr></table></section><section>
 <h3><a name="com.Selenium"></a>com.Selenium</h3><a name="com.Selenium"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
@@ -272,7 +272,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>6.965</td></tr></table></section><section>
+<td>17.056</td></tr></table></section><section>
 <h3><a name="com.service"></a>com.service</h3><a name="com.service"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
@@ -292,7 +292,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.047</td></tr>
+<td>0.001</td></tr>
 <tr class="a">
 <td><a href="#com.service.CategoryServiceUnitTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.service.CategoryServiceUnitTest">CategoryServiceUnitTest</a></td>
@@ -301,7 +301,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.262</td></tr>
+<td>0.135</td></tr>
 <tr class="b">
 <td><a href="#com.service.RecipeServiceIntegrationTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.service.RecipeServiceIntegrationTest">RecipeServiceIntegrationTest</a></td>
@@ -310,7 +310,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>6.374</td></tr>
+<td>6.144</td></tr>
 <tr class="a">
 <td><a href="#com.service.IngredientsServiceIntegrationTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.service.IngredientsServiceIntegrationTest">IngredientsServiceIntegrationTest</a></td>
@@ -319,7 +319,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.057</td></tr>
+<td>0.001</td></tr>
 <tr class="b">
 <td><a href="#com.service.IngredientsServiceUnitTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.service.IngredientsServiceUnitTest">IngredientsServiceUnitTest</a></td>
@@ -328,7 +328,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.068</td></tr>
+<td>0.094</td></tr>
 <tr class="a">
 <td><a href="#com.service.RecipeServiceUnitTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
 <td><a href="#com.service.RecipeServiceUnitTest">RecipeServiceUnitTest</a></td>
@@ -337,7 +337,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.123</td></tr></table></section><br /></section><section>
+<td>0.19</td></tr></table></section><br /></section><section>
 <h2><a name="Test_Cases"></a>Test Cases</h2><a name="Test_Cases"></a>
 <p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><section>
 <h3><a name="CategoryServiceIntegrationTest"></a>CategoryServiceIntegrationTest</h3><a name="com.service.CategoryServiceIntegrationTest"></a>
@@ -353,47 +353,47 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.CategoryServiceIntegrationTest.testUpdateCategory"></a>testUpdateCategory</td>
-<td>0.008</td></tr>
+<td>0.001</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.CategoryServiceIntegrationTest.testCreateCategory"></a>testCreateCategory</td>
-<td>0.017</td></tr>
+<td>0</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.CategoryServiceIntegrationTest.testDeleteCategoryById"></a>testDeleteCategoryById</td>
-<td>0.014</td></tr></table></section><section>
+<td>0</td></tr></table></section><section>
 <h3><a name="RecipeControllerIntegrationTest"></a>RecipeControllerIntegrationTest</h3><a name="com.rest.RecipeControllerIntegrationTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerIntegrationTest.testCreateRecipe"></a>testCreateRecipe</td>
-<td>0.241</td></tr>
+<td>0.301</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerIntegrationTest.testUpdateRecipe"></a>testUpdateRecipe</td>
-<td>0.046</td></tr>
+<td>0.036</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerIntegrationTest.testDeleteRecipe"></a>testDeleteRecipe</td>
-<td>0.026</td></tr>
+<td>0.029</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerIntegrationTest.testPatchIngredients"></a>testPatchIngredients</td>
-<td>0.057</td></tr>
+<td>0.034</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerIntegrationTest.testGetAllRecipe"></a>testGetAllRecipe</td>
-<td>0.04</td></tr>
+<td>0.029</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerIntegrationTest.testPatchCategories"></a>testPatchCategories</td>
-<td>0.038</td></tr></table></section><section>
+<td>0.035</td></tr></table></section><section>
 <h3><a name="CategoryServiceUnitTest"></a>CategoryServiceUnitTest</h3><a name="com.service.CategoryServiceUnitTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.CategoryServiceUnitTest.createCategoryTest"></a>createCategoryTest</td>
-<td>0.039</td></tr>
+<td>0.023</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.CategoryServiceUnitTest.categoryNameTooShortTest"></a>categoryNameTooShortTest</td>
@@ -421,29 +421,29 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.CategoryServiceUnitTest.categoryContainsSpecialCharactersTest"></a>categoryContainsSpecialCharactersTest</td>
-<td>0.002</td></tr>
+<td>0.001</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.CategoryServiceUnitTest.categoryContainsOnlyNumbersTest"></a>categoryContainsOnlyNumbersTest</td>
-<td>0.001</td></tr>
+<td>0.002</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.CategoryServiceUnitTest.categoryNameTooLongTest"></a>categoryNameTooLongTest</td>
-<td>0.001</td></tr></table></section><section>
+<td>0.002</td></tr></table></section><section>
 <h3><a name="IngredientControllerUnitTest"></a>IngredientControllerUnitTest</h3><a name="com.rest.IngredientControllerUnitTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.IngredientControllerUnitTest.updateIngredientTest"></a>updateIngredientTest</td>
-<td>0.002</td></tr>
+<td>0.001</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.IngredientControllerUnitTest.findIngredientByIdTest"></a>findIngredientByIdTest</td>
-<td>0.003</td></tr>
+<td>0.002</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.IngredientControllerUnitTest.createIngredientTest"></a>createIngredientTest</td>
-<td>0.002</td></tr>
+<td>0.001</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.IngredientControllerUnitTest.getAllIngredientTest"></a>getAllIngredientTest</td>
@@ -457,15 +457,15 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.CategoryControllerUnitTest.createCategoryTest"></a>createCategoryTest</td>
-<td>0.002</td></tr>
+<td>0.001</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.CategoryControllerUnitTest.deleteCategoryTest"></a>deleteCategoryTest</td>
-<td>0.003</td></tr>
+<td>0.002</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.CategoryControllerUnitTest.updateCategoryTest"></a>updateCategoryTest</td>
-<td>0.003</td></tr>
+<td>0.002</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.CategoryControllerUnitTest.findCategoryByIdTest"></a>findCategoryByIdTest</td>
@@ -479,77 +479,77 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.persistence.IngredientsRepoTest.testFindByName"></a>testFindByName</td>
-<td>0.002</td></tr></table></section><section>
+<td>0</td></tr></table></section><section>
 <h3><a name="CategoryControllerIntegrationTest"></a>CategoryControllerIntegrationTest</h3><a name="com.rest.CategoryControllerIntegrationTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.CategoryControllerIntegrationTest.testGetAllCategory"></a>testGetAllCategory</td>
-<td>0.013</td></tr>
+<td>0.012</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.CategoryControllerIntegrationTest.testUpdateCategory"></a>testUpdateCategory</td>
-<td>0.017</td></tr>
+<td>0.016</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.CategoryControllerIntegrationTest.testCreateCategory"></a>testCreateCategory</td>
-<td>0.013</td></tr>
+<td>0.012</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.CategoryControllerIntegrationTest.testDeleteCategory"></a>testDeleteCategory</td>
-<td>0.014</td></tr></table></section><section>
+<td>0.012</td></tr></table></section><section>
 <h3><a name="RecipeServiceIntegrationTest"></a>RecipeServiceIntegrationTest</h3><a name="com.service.RecipeServiceIntegrationTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceIntegrationTest.testUpdateRecipeWithCategories"></a>testUpdateRecipeWithCategories</td>
-<td>0.424</td></tr>
+<td>0.414</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceIntegrationTest.testCreateRecipe"></a>testCreateRecipe</td>
-<td>0.055</td></tr>
+<td>0.044</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceIntegrationTest.testGetAllRecipes"></a>testGetAllRecipes</td>
-<td>0.13</td></tr>
+<td>0.123</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceIntegrationTest.testUpdateRecipe"></a>testUpdateRecipe</td>
-<td>0.067</td></tr>
+<td>0.032</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceIntegrationTest.testUpdateRecipeWithIngredients"></a>testUpdateRecipeWithIngredients</td>
-<td>0.066</td></tr>
+<td>0.033</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceIntegrationTest.testDeleteRecipeById"></a>testDeleteRecipeById</td>
-<td>0.09</td></tr>
+<td>0.053</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceIntegrationTest.testFindRecipeByID"></a>testFindRecipeByID</td>
-<td>0.029</td></tr></table></section><section>
+<td>0.022</td></tr></table></section><section>
 <h3><a name="RecipeRepoTest"></a>RecipeRepoTest</h3><a name="com.persistence.RecipeRepoTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.persistence.RecipeRepoTest.testFindByName"></a>testFindByName</td>
-<td>0.006</td></tr></table></section><section>
+<td>0</td></tr></table></section><section>
 <h3><a name="CategoryRepoTest"></a>CategoryRepoTest</h3><a name="com.persistence.CategoryRepoTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.persistence.CategoryRepoTest.testFindByName"></a>testFindByName</td>
-<td>0.004</td></tr></table></section><section>
+<td>0</td></tr></table></section><section>
 <h3><a name="CategoryUnitTest"></a>CategoryUnitTest</h3><a name="com.persistence.CategoryUnitTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.persistence.CategoryUnitTest.failingEqualsAndHashcodeCategoryTest"></a>failingEqualsAndHashcodeCategoryTest</td>
-<td>0.001</td></tr>
+<td>0</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.persistence.CategoryUnitTest.hashcodeAndEqualsCategoryTest"></a>hashcodeAndEqualsCategoryTest</td>
-<td>0.002</td></tr></table></section><section>
+<td>0</td></tr></table></section><section>
 <h3><a name="IngredientsUnitTest"></a>IngredientsUnitTest</h3><a name="com.persistence.IngredientsUnitTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
@@ -565,23 +565,23 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceIntegrationTest.testFindIngredientsByID"></a>testFindIngredientsByID</td>
-<td>0.012</td></tr>
+<td>0</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceIntegrationTest.testUpdateIngredients"></a>testUpdateIngredients</td>
-<td>0.011</td></tr>
+<td>0</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceIntegrationTest.testGetAllIngredients"></a>testGetAllIngredients</td>
-<td>0.008</td></tr>
+<td>0.001</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceIntegrationTest.testDeleteIngredientsById"></a>testDeleteIngredientsById</td>
-<td>0.013</td></tr>
+<td>0</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceIntegrationTest.testCreateIngredients"></a>testCreateIngredients</td>
-<td>0.007</td></tr></table></section><section>
+<td>0</td></tr></table></section><section>
 <h3><a name="IngredientsServiceUnitTest"></a>IngredientsServiceUnitTest</h3><a name="com.service.IngredientsServiceUnitTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
@@ -591,49 +591,49 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceUnitTest.updateIngredientTest"></a>updateIngredientTest</td>
-<td>0.002</td></tr>
+<td>0.003</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceUnitTest.ingredientContainsOnlyNumbersTest"></a>ingredientContainsOnlyNumbersTest</td>
-<td>0</td></tr>
+<td>0.002</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceUnitTest.findIngredientByIdTest"></a>findIngredientByIdTest</td>
-<td>0.002</td></tr>
+<td>0.008</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceUnitTest.createIngredientTest"></a>createIngredientTest</td>
-<td>0.001</td></tr>
+<td>0.002</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceUnitTest.deleteIngredientTest"></a>deleteIngredientTest</td>
-<td>0.002</td></tr>
+<td>0.005</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceUnitTest.ingredientNameAcceptableTest"></a>ingredientNameAcceptableTest</td>
-<td>0.002</td></tr>
+<td>0.003</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceUnitTest.ingredientNameTooShortTest"></a>ingredientNameTooShortTest</td>
-<td>0.001</td></tr>
+<td>0.002</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceUnitTest.readIngredientsTest"></a>readIngredientsTest</td>
-<td>0.001</td></tr>
+<td>0.004</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.IngredientsServiceUnitTest.ingredientContainsSpecialCharactersTest"></a>ingredientContainsSpecialCharactersTest</td>
-<td>0.006</td></tr></table></section><section>
+<td>0.004</td></tr></table></section><section>
 <h3><a name="SeleniumTests"></a>SeleniumTests</h3><a name="com.Selenium.SeleniumTests"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.Selenium.SeleniumTests.testLogic"></a>testLogic</td>
-<td>1.793</td></tr>
+<td>10.635</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.Selenium.SeleniumTests.testCRUD"></a>testCRUD</td>
-<td>3.732</td></tr></table></section><section>
+<td>4.351</td></tr></table></section><section>
 <h3><a name="RecipeUnitTest"></a>RecipeUnitTest</h3><a name="com.persistence.RecipeUnitTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
@@ -643,25 +643,25 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.persistence.RecipeUnitTest.failingEqualsAndHashcodeCategoryTest"></a>failingEqualsAndHashcodeCategoryTest</td>
-<td>0.001</td></tr></table></section><section>
+<td>0</td></tr></table></section><section>
 <h3><a name="RecipeControllerUnitTest"></a>RecipeControllerUnitTest</h3><a name="com.rest.RecipeControllerUnitTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerUnitTest.getAllRecipeTest"></a>getAllRecipeTest</td>
-<td>0.001</td></tr>
+<td>0</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerUnitTest.deleteRecipeTest"></a>deleteRecipeTest</td>
-<td>0.002</td></tr>
+<td>0</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerUnitTest.findRecipeByIdTest"></a>findRecipeByIdTest</td>
-<td>0.002</td></tr>
+<td>0</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerUnitTest.updateRecipeTest"></a>updateRecipeTest</td>
-<td>0.002</td></tr>
+<td>0</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.RecipeControllerUnitTest.createRecipeTest"></a>createRecipeTest</td>
@@ -671,45 +671,45 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.IngredientControllerIntegrationTest.testGetAllIngredients"></a>testGetAllIngredients</td>
-<td>0.01</td></tr>
+<td>0.009</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.IngredientControllerIntegrationTest.testUpdateCategory"></a>testUpdateCategory</td>
-<td>0.016</td></tr>
+<td>0.015</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.IngredientControllerIntegrationTest.testCreateIngredient"></a>testCreateIngredient</td>
-<td>0.011</td></tr>
+<td>0.014</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.rest.IngredientControllerIntegrationTest.testDeleteIngredient"></a>testDeleteIngredient</td>
-<td>0.013</td></tr></table></section><section>
+<td>0.02</td></tr></table></section><section>
 <h3><a name="RecipeServiceUnitTest"></a>RecipeServiceUnitTest</h3><a name="com.service.RecipeServiceUnitTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.findAllRecipesTest"></a>findAllRecipesTest</td>
-<td>0.002</td></tr>
+<td>0</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.deleteRecipeTest"></a>deleteRecipeTest</td>
-<td>0.002</td></tr>
+<td>0</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.recipeNameTooLongTest"></a>recipeNameTooLongTest</td>
-<td>0.001</td></tr>
+<td>0</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.findRecipeByIdTest"></a>findRecipeByIdTest</td>
-<td>0.002</td></tr>
+<td>0.004</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.updateRecipeTest"></a>updateRecipeTest</td>
-<td>0.003</td></tr>
+<td>0.002</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.recipeNameTooShortTest"></a>recipeNameTooShortTest</td>
-<td>0.002</td></tr>
+<td>0.004</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.recipeNameContainsSpecialCharactersTest"></a>recipeNameContainsSpecialCharactersTest</td>
@@ -717,11 +717,11 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.addAndRemoveCategories"></a>addAndRemoveCategories</td>
-<td>0.006</td></tr>
+<td>0.003</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.recipeTimeToMakeTest"></a>recipeTimeToMakeTest</td>
-<td>0.002</td></tr>
+<td>0.001</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.recipeNameContainsOnlyNumbers"></a>recipeNameContainsOnlyNumbers</td>
@@ -729,11 +729,11 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.recipeServingAmountTest"></a>recipeServingAmountTest</td>
-<td>0.002</td></tr>
+<td>0.006</td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.acceptableRecipeNameTest"></a>acceptableRecipeNameTest</td>
-<td>0.002</td></tr>
+<td>0.001</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.recipeRatingTest"></a>recipeRatingTest</td>
@@ -741,11 +741,11 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.createRecipeTest"></a>createRecipeTest</td>
-<td>0.001</td></tr>
+<td>0.002</td></tr>
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
 <td><a name="TC_com.service.RecipeServiceUnitTest.addAndRemoveIngredients"></a>addAndRemoveIngredients</td>
-<td>0.003</td></tr></table></section><br /></section>
+<td>0.002</td></tr></table></section><br /></section>
       </div>
     </div>
     <div class="clear">
